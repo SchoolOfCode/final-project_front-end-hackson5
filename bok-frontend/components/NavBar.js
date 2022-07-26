@@ -1,12 +1,17 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
 import theme from "../pages/src/theme";
+import styles from "../styles/NavBar.module.css"
+import Image from "next/image"
+import MenuIcon from '@mui/icons-material/Menu';
+import { IconButton } from "@mui/material";
 
 function NavBar() {
   return (
-    <div>
-      <div>Bok</div>
-      <input />
+    <div className={styles.container}>
+     <div className={styles.ImagePadding}>
+      <Image src="/BokLogo.png" width="100" height="60"></Image>
+      </div>
       <TextField
         id="standard-basic"
         label="Search..."
@@ -19,7 +24,9 @@ function NavBar() {
           borderColor: "primary.main",
         }}
       />
-      <div>icon</div>
+      <IconButton aria-label="option" className={styles.HamburgerMenu}>
+        <MenuIcon ></MenuIcon>
+      </IconButton>
     </div>
   );
 }

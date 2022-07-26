@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: burlywood;
+    align-items: center;
+
+}
+
+.NavbarPadding {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.ImagePadding {
+    margin-right: 20%;
+}
+
+.HamburgerMenu {
+    margin-left: 20%;
+}
