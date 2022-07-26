@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import NavBar from "../components/NavBar"
 
 function search() {
   return (
-    <div>search</div>
-  )
+    <div>
+      <NavBar />
+      <div>search</div>
+    </div>
+  );
 }
 
-export default search
+export default search;

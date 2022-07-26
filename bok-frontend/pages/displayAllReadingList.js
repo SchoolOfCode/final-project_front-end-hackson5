@@ -1,8 +1,11 @@
 import React from 'react'
+import NavBar from "../components/NavBar"
 
 function DisplayAllReadingList() {
   return (
-    <div>DisplayAllReadingList
+    <div>
+      <NavBar />
+      <div>all lists</div>
     </div>
   )
 }

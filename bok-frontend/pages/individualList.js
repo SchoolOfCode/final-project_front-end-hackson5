@@ -1,8 +1,12 @@
 import React from 'react'
+import NavBar from "../components/NavBar"
 
 function individuallist() {
   return (
-    <div>individuallist</div>
+    <div>
+      <NavBar />
+      <div>lists</div>
+    </div>
   )
 }
 
