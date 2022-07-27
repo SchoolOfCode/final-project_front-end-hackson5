@@ -16,7 +16,7 @@ function NavBar() {
   const [route, setRoute] = useState()
   const handleSubmit = (e) => {
       e.preventDefault()
-      router.push("search")
+      router.push("search/?id=" + route)
   }
 
   return (
