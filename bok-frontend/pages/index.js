@@ -1,4 +1,5 @@
 import Head from "next/head";
+import BookItem from "../components/BookItem";
 import styles from "../styles/Home.module.css";
   
 export default function Home() {

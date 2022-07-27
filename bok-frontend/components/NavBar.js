@@ -14,7 +14,9 @@ function NavBar() {
     <div>   
     <div className={styles.container}>
      <div className={styles.ImagePadding}>
-      <Image src="/BokLogo.png" width="100" height="60"></Image>
+     <Link href="/"> 
+      <a><Image src="/BokLogo.png" width="100" height="60"></Image></a>
+     </Link>
       </div>
       <TextField
         id="standard-basic"

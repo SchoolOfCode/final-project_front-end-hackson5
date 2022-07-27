@@ -1,0 +1,9 @@
+.bookContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.infoContainer {
+    width: 50%;
+    background-color: #EDEEC9;
+}
