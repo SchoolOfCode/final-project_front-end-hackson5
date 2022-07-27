@@ -1,12 +1,22 @@
 import React from 'react'
+import styles from "../styles/BookItem.module.css"
 
-function ReadingList({data}) {
+export const getStaticProps = async() => {
+  const res = await fetch ("")
+  const data = await res.json
+
+  return {
+    props: {readinglist: data}
+  }
+}
+
+function ReadingList({readingList}) {
   return (
-    data.map((arr, index) => {
+    readingList.map((arr, index) => {
         return (
-          <div key={index} className={styles.bookContainer}>
+          <div key={arr.id} className={styles.bookContainer}>
         <div>
-          <img src={arr.image} width={100}/>
+          {/*<img src={arr.image} width={100}/>*/}
         </div>
         <div className={styles.infoContainer}>
           <p>{arr.title}</p>
