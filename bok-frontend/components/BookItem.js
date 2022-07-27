@@ -1,3 +1,6 @@
+//This is a component which includes a bookcover image, book title, description and an add to list button.
+//It uses data as props pass down to the component and maps through it
+
 import React from "react";
 import Image from "next/image";
 import { Button } from "@mui/material";

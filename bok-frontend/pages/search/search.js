@@ -1,6 +1,6 @@
 import React from "react";
-import NavBar from "../components/NavBar"
-import BookItem from "../components/BookItem";
+import NavBar from "../../components/NavBar"
+import BookItem from "../../components/BookItem";
 
 function search() {
 

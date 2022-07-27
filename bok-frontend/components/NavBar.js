@@ -7,9 +7,18 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { IconButton } from "@mui/material";
 import Link from "next/link"
+import {useRouter} from 'next/router'
 
+    
 function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter()
+  const [route, setRoute] = useState()
+  const handleSubmit = (e) => {
+      e.preventDefault()
+      router.push("search")
+  }
+
   return (
     <div>   
     <div className={styles.container}>
@@ -18,7 +27,8 @@ function NavBar() {
       <a><Image src="/BokLogo.png" width="100" height="60"></Image></a>
      </Link>
       </div>
-      <TextField
+      <input type="text" name='route' onChange={(e)=>{setRoute(e.target.value)}} onKeyDown={(e)=>{e.key==='Enter'?handleSubmit(e):console.log(false)}} />
+      {/* <TextField
         id="standard-basic"
         label="Search..."
         variant="standard"
@@ -29,7 +39,7 @@ function NavBar() {
           border: 1,
           borderColor: "primary.main",
         }}
-      />
+      /> */}
       <IconButton aria-label="option" className={styles.HamburgerMenu}  onClick={() => setMenuOpen(true)}>
         <MenuIcon></MenuIcon>
       </IconButton>

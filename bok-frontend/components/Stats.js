@@ -6,7 +6,7 @@ function Stats() {
     <div>   
     <div>Stats</div>
     <div>You've read two books this month</div>
-    <Button variant="contained" sx={{zindex: 0}}>More Stats</Button>
+    <Button variant="contained">More Stats</Button>
     </div>
   )
 }
