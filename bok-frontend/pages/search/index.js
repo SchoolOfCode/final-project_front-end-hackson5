@@ -22,7 +22,7 @@ function search() {
   return (
     <div>
       <div>Search results for: {id}</div>
-      {/* <BookItem data={data} /> */}
+      { <BookItem data={data} /> }
     </div>
   );
 }
