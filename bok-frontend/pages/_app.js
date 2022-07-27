@@ -7,6 +7,7 @@ import { CacheProvider } from '@emotion/react';
 import theme from './src/theme';
 import createEmotionCache from './src/createEmotionCache';
 import Layout from '../components/Layout';
+import {useRouter} from "next/router"
   
 // Client-side cache shared for the whole session 
 // of the user in the browser.
@@ -16,9 +17,12 @@ const clientSideEmotionCache = createEmotionCache();
 export default function MyApp(props) {
     const { Component, emotionCache = 
         clientSideEmotionCache, pageProps } = props;
+
+    const router = useRouter();
+    const showHeader = router.pathname === '/logIn' ? false : true;
   
     return (
-        <Layout>    
+         
         <CacheProvider value={emotionCache}>
             <Head>
                 <meta name="viewport" 
@@ -31,10 +35,11 @@ export default function MyApp(props) {
                 build upon. */}
                   
                 <CssBaseline />
+                {showHeader && <Layout/>}  
                 <Component {...pageProps} />
             </ThemeProvider>
         </CacheProvider>
-        </Layout>
+        
     );
 }
   
