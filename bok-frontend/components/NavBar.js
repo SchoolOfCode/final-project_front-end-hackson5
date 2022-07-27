@@ -11,11 +11,13 @@ import {useRouter} from 'next/router'
 
     
 function NavBar() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter()
+  const [inputContent, setInputValue] = useState("")
+  const [menuOpen, setMenuOpen] = useState(false);
   const [route, setRoute] = useState()
   const handleSubmit = (e) => {
       e.preventDefault()
+      setInputValue("");
       router.push("search/?id=" + route)
   }
 
@@ -27,7 +29,7 @@ function NavBar() {
       <a><Image src="/BokLogo.png" width="100" height="60"></Image></a>
      </Link>
       </div>
-      <input type="text" name='route' onChange={(e)=>{setRoute(e.target.value)}} onKeyDown={(e)=>{e.key==='Enter'?handleSubmit(e):console.log(false)}} />
+      <input type="text" name='route' placeholder="Search Book..." value={inputContent} onChange={(e)=>{setRoute(e.target.value); setInputValue(e.target.value)}} onKeyDown={(e)=>{e.key==='Enter'?handleSubmit(e) :console.log(false)}} />
       {/* <TextField
         id="standard-basic"
         label="Search..."
@@ -50,7 +52,7 @@ function NavBar() {
         <Link href="/"><a onClick={() => setMenuOpen(false)}>Home</a></Link>
         <Link href="/user"><a onClick={() => setMenuOpen(false)}>Profile</a></Link>
         <Link href="/stats"><a onClick={() => setMenuOpen(false)}>Stats</a></Link>
-        <Link href="/displayallreadinglist"><a onClick={() => setMenuOpen(false)}>Lists</a></Link>
+        <Link href="/lists"><a onClick={() => setMenuOpen(false)}>Lists</a></Link>
       </div>
       </div>}
     </div>
