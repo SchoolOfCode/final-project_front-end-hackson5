@@ -1,10 +1,10 @@
 import React from 'react'
-import NavBar from "../components/NavBar"
+import Image from 'next/image'
 
 function login() {
   return (
     <div>
-      <NavBar />
+    <Image src="/BokLogo.png" width="100" height="60"></Image>
       <div>login</div>
     </div>
   )
