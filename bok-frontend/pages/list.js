@@ -1,11 +1,13 @@
 import React from "react";
-import NavBar from "../components/NavBar";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+import { useRouter } from "next/router";
 
 function individuallist() {
+
+  var router = useRouter();
+  var id = router.query["id"];
   return (
     <div>
-      <NavBar />
       <div>lists</div>
     </div>
   );
