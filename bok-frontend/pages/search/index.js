@@ -46,7 +46,7 @@ function search() {
   return (
     <div>
       <div>Search results for: {id}</div>
-        {/* <div className={styles.backgroundDim}>test</div> */}
+        {displayOpen && <div className={styles.backgroundDim}></div>}
       {displayOpen && (
         <div className={styles.popupContainer}>
           <div onClick={() => setDisplayOpen(false)}>x</div>
