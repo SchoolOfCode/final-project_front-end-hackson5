@@ -9,25 +9,8 @@ import styles from "../styles/BookItem.module.css";
 import CircularProgress from "@mui/material/CircularProgress";
 import PopupDisplay from "./PopupDisplay";
 
-export default function BookItem({ data }) {
-  const [open, setOpen] = useState(false)
-  const [bookKey, setBookKey] = useState()
-  const [bookData, setBookData] = useState()
+export default function BookItem({ data, bookInfoDisplay }) {
 
-  useEffect(() => {
-      let key = bookKey?.split("/works/")
-    console.log(key)
-      const fetchData = async () => {
-          const res = await fetch(`https://openlibrary.org/works/${key[1]}.json`)
-          const data = await res.json()
-          setBookData(data)
-      }
-      if (bookKey) {
-        fetchData();
-      }
-  }, [bookKey])
-
-  console.log(bookData)
 
   if (!data) {
     return <CircularProgress />;
@@ -46,8 +29,8 @@ export default function BookItem({ data }) {
             <p>{arr.author_name[0]}</p>
             <Button variant="contained">Add to list</Button>
           </div>
-          <PopupDisplay data={bookData}/>
-          {open && <div onClick={() => setOpen(false)}>Test</div>}
+          <button onClick={() => bookInfoDisplay(arr.key)}>Open</button>
+          {/* <PopupDisplay data={bookData}/> */}
         </div>
       );
     })

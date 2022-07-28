@@ -1,0 +1,20 @@
+.popupContainer {
+    position: absolute;
+    display: flex;
+    word-wrap: break-word;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    left: 10%;
+    width: 80vw;
+    background-color: aquamarine;
+    z-index: 1;
+}
+
+.descriptContainer {
+    width: 70%;
+}
+
+.backgroundDim {
+    content: "";
+    background-color: rgb(0,0,0,.5);
+}
