@@ -1,16 +1,11 @@
 //This is a component which includes a bookcover image, book title, description and an add to list button.
 //It uses data as props pass down to the component and maps through it
-
-import { useState, useEffect } from "react";
-import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import { Button } from "@mui/material";
 import styles from "../styles/BookItem.module.css";
 import CircularProgress from "@mui/material/CircularProgress";
-import PopupDisplay from "./PopupDisplay";
 
 export default function BookItem({ data, bookInfoDisplay }) {
-
 
   if (!data) {
     return <CircularProgress />;
@@ -30,7 +25,6 @@ export default function BookItem({ data, bookInfoDisplay }) {
             <Button variant="contained">Add to list</Button>
           </div>
           <button onClick={() => bookInfoDisplay(arr.key)}>Open</button>
-          {/* <PopupDisplay data={bookData}/> */}
         </div>
       );
     })
