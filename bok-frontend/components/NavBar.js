@@ -65,7 +65,7 @@ function NavBar() {
         <div className={styles.menuContainer}>
           <CloseIcon onClick={() => setMenuOpen(false)} />
           <div className={styles.menuContentContainer}>
-            <Link href="/">
+            <Link href="/home">
               <a onClick={() => setMenuOpen(false)}>Home</a>
             </Link>
             <Link href="/user">
