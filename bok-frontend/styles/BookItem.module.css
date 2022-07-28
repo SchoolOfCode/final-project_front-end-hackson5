@@ -1,0 +1,33 @@
+.bookContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.infoContainer {
+    width: 50%;
+    background-color: #EDEEC9;
+}
+
+.popupContent {
+    margin: auto;
+    background: rgb(152, 119, 119);
+    width: 100%;
+    padding: 5px;
+  }
+
+  .popupArrow {
+    color: rgb(169, 72, 72);
+  }
+
+  [role='tooltip'].popupContent {
+    width: 500px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+  }
+  
+  .popupOverlay {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  [data-popup='tooltip'].popupOverlay {
+    background: transparent;
+  }
