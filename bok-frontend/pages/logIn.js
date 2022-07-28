@@ -9,7 +9,6 @@ function login() {
       <Image src="/BokLogo.png" width="100" height="60"></Image>
       <div className={styles.buttonContainer}>
         <a href="/api/auth/login">Signup</a>
-
         <a href="/api/auth/login">Login</a>
       </div>
     </div>

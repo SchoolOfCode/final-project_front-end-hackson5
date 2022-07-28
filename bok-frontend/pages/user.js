@@ -1,5 +1,6 @@
 import React from "react";
 import { useUser } from "@auth0/nextjs-auth0";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 export default function user() {
   const { user, error, isLoading } = useUser();
@@ -18,3 +19,5 @@ export default function user() {
     )
   );
 }
+
+export const getServerSideProps = withPageAuthRequired();
