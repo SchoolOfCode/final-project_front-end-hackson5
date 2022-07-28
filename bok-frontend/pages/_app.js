@@ -19,7 +19,7 @@ export default function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   const router = useRouter();
-  const showHeader = router.pathname === "/logIn" ? false : true;
+  const showHeader = router.pathname === "/" ? false : true;
 
   return (
     <CacheProvider value={emotionCache}>

@@ -1,21 +1,17 @@
-import Head from "next/head";
-import BookItem from "../components/BookItem";
-import ReadingList from "../components/ReadingList";
-import Stats from "../components/Stats";
-import styles from "../styles/Home.module.css";
+import React from "react";
+import Image from "next/image";
+import styles from "../styles/Login.module.css";
 
-export default function Home() {
+function login() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Stats />
-      <ReadingList />
+    <div className={styles.loginContainer}>
+      <Image src="/BokLogo.png" width="100" height="60"></Image>
+      <div className={styles.buttonContainer}>
+        <a href="/api/auth/login">Signup</a>
+        <a href="/api/auth/login">Login</a>
+      </div>
     </div>
   );
 }
 
-export const getServerSideProps = withPageAuthRequired();
-import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+export default login;
