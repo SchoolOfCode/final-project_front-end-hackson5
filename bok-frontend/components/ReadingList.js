@@ -6,11 +6,7 @@ import { useRouter } from "next/router";
 
 function ReadingList({ readingList }) {
   const router = useRouter();
-  const [route, setRoute] = useState();
-
-  console.log(route)
-
-  const handleClick = () => {
+  const handleClick = (route) => {
     router.push("list/?id=" + route)
   }
 
@@ -37,7 +33,7 @@ function ReadingList({ readingList }) {
       <div key={arr.reading_list_id} className={styles.bookContainer}>
         <div className={styles.infoContainer}>
           <p>{arr.reading_list_name}</p>
-          <Button variant="contained" onClick={() => {setRoute(`1234/${arr.reading_list_id}`); handleClick();}}>View list</Button>
+          <Button variant="contained" onClick={() => {handleClick(`1234/${arr.reading_list_id}`);}}>View list</Button>
         </div>
       </div>
     );
