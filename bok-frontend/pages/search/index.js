@@ -41,8 +41,6 @@ function search() {
     setDisplayOpen(true);
   };
 
-  console.log(data);
-
   return (
     <div>
       <div>Search results for: {id}</div>
