@@ -6,7 +6,6 @@ import styles from "../styles/BookItem.module.css";
 import CircularProgress from "@mui/material/CircularProgress";
 
 export default function BookItem({ data, bookInfoDisplay }) {
-
   if (!data) {
     return <CircularProgress />;
   } else {
@@ -27,6 +26,6 @@ export default function BookItem({ data, bookInfoDisplay }) {
           <button onClick={() => bookInfoDisplay(arr.key)}>Open</button>
         </div>
       );
-    })
+    });
   }
 }

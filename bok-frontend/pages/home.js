@@ -8,12 +8,10 @@ export const getStaticProps = async () => {
   const res = await fetch("https://hackson5.herokuapp.com/readinglist/1234");
   const data = await res.json();
 
-  console.log(data);
   return {
     props: { readingList: data },
   };
 };
-
 
 function Home({ readingList }) {
   return (
@@ -23,7 +21,7 @@ function Home({ readingList }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Stats />
-      <ReadingList readingList={readingList}/>
+      <ReadingList readingList={readingList} />
     </div>
   );
 }
