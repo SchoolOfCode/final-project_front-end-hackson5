@@ -74,8 +74,8 @@ function NavBar() {
             <Link href="/stats">
               <a onClick={() => setMenuOpen(false)}>Stats</a>
             </Link>
-            <Link href="/readinglists">
-              <a onClick={() => setMenuOpen(false)}>Reading Lists</a>
+            <Link href="/myLists">
+              <a onClick={() => setMenuOpen(false)}>My Lists</a>
             </Link>
             <Link href="/api/auth/logout">
               <a onClick={() => setMenuOpen(false)}>Logout</a>
