@@ -31,7 +31,7 @@ function individuallist() {
 
   return (
     <div>
-      <DisplayBook bookList={listId} />
+      <DisplayBook bookList={listId} readingListID={id} />
     </div>
   );
 }
