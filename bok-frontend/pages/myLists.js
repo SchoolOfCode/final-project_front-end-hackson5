@@ -4,10 +4,11 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { useUser } from "@auth0/nextjs-auth0";
 import AddReadingList from "../components/AddReadingList";
 
-function lists() {
+function AllReadingLists() {
   const { user } = useUser();
   const [readingList, setReadingList] = useState();
 
+  //Fetchs all reading lists for a specific user
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
@@ -29,4 +30,4 @@ function lists() {
   );
 }
 
-export default withPageAuthRequired(lists);
+export default withPageAuthRequired(AllReadingLists);

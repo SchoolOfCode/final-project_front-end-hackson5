@@ -6,10 +6,13 @@ import styles from "../styles/Home.module.css";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { useUser } from "@auth0/nextjs-auth0";
 
+//the home page which is displayed after successful login.
+
 function Home() {
   const [readingList, setReadingList] = useState();
   const { user } = useUser();
 
+  //Fetchs all reading lists for a specific user and passes the first two to readingList component
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
@@ -20,8 +23,6 @@ function Home() {
       const data = await res.json();
 
       setReadingList(data.payload.slice(0, 2));
-
-      console.log(data);
     };
     fetchData();
   }, [user]);

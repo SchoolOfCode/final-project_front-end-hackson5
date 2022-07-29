@@ -1,12 +1,9 @@
-export function ReadingListDropDown({
-  readingListData,
-  handleChange,
-  readingListSelection,
-}) {
+//On the BookSearchDisplay, the user can select a reading list and add a book to it
+
+export function ReadingListDropDown({ readingListData, handleChange }) {
   return (
     readingListData?.length > 0 && (
       <select
-        value={readingListSelection}
         onChange={(e) => {
           handleChange(e);
         }}
