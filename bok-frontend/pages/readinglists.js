@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
-import Head from "next/head";
 import ReadingList from "../components/ReadingList";
-import Stats from "../components/Stats";
-import styles from "../styles/Home.module.css";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { useUser } from "@auth0/nextjs-auth0";
+import AddReadingList from "../components/AddReadingList";
 
-function Home() {
-  const [readingList, setReadingList] = useState();
+function lists() {
   const { user } = useUser();
+  const [readingList, setReadingList] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,24 +16,17 @@ function Home() {
         )}`
       );
       const data = await res.json();
-
-      setReadingList(data.payload.slice(0, 2));
-
-      console.log(data);
+      setReadingList(data.payload);
     };
     fetchData();
   }, [user]);
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Stats />
+    <div>
+      <AddReadingList />
       <ReadingList readingList={readingList} />
     </div>
   );
 }
 
-export default withPageAuthRequired(Home);
+export default withPageAuthRequired(lists);

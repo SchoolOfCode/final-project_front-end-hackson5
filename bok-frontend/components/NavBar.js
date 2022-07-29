@@ -1,6 +1,4 @@
 import { useState } from "react";
-import TextField from "@mui/material/TextField";
-import theme from "../pages/src/theme";
 import styles from "../styles/NavBar.module.css";
 import Image from "next/image";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -24,7 +22,7 @@ function NavBar() {
     <div>
       <div className={styles.container}>
         <div className={styles.ImagePadding}>
-          <Link href="/">
+          <Link href="/home">
             <a>
               <Image src="/BokLogo.png" width="100" height="60"></Image>
             </a>
@@ -67,17 +65,17 @@ function NavBar() {
         <div className={styles.menuContainer}>
           <CloseIcon onClick={() => setMenuOpen(false)} />
           <div className={styles.menuContentContainer}>
-            <Link href="/">
+            <Link href="/home">
               <a onClick={() => setMenuOpen(false)}>Home</a>
             </Link>
-            <Link href="/user">
+            <Link href="/profile">
               <a onClick={() => setMenuOpen(false)}>Profile</a>
             </Link>
             <Link href="/stats">
               <a onClick={() => setMenuOpen(false)}>Stats</a>
             </Link>
-            <Link href="/lists">
-              <a onClick={() => setMenuOpen(false)}>Lists</a>
+            <Link href="/readinglists">
+              <a onClick={() => setMenuOpen(false)}>Reading Lists</a>
             </Link>
             <Link href="/api/auth/logout">
               <a onClick={() => setMenuOpen(false)}>Logout</a>

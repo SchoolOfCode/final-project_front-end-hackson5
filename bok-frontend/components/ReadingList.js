@@ -1,44 +1,51 @@
-import React from 'react'
-import styles from "../styles/BookItem.module.css"
-import { Button } from '@mui/material'
+import styles from "../styles/BookItem.module.css";
+import { Button } from "@mui/material";
+import { useRouter } from "next/router";
+import { useUser } from "@auth0/nextjs-auth0";
 
-// export const getStaticProps = async() => {
-//   const res = await fetch ("")
-//   const data = await res.json
+function ReadingList({ readingList }) {
+  const { user } = useUser();
+  const router = useRouter();
+  const handleClick = (route) => {
+    router.push("list/?id=" + route);
+  };
 
-//   return {
-//     props: {readingList: data}
-//   }
-// }
+  const deleteFromList = async (id) => {
+    await fetch(`https://hackson5.herokuapp.com/readinglist/list/${id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    });
 
-function ReadingList({readingList}) {
-  const data = [{
-    id: 1,
-    listTitle: "History",
-    image: "https://www.creativindie.com/wp-content/uploads/2012/07/stock-image-site-pinterest-graphic.jpg"
-  },
-  {
-    id: 2,
-    listTitle: "Sci-fi",
-    image: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-thriller-book-cover-design-template-3675ae3e3ac7ee095fc793ab61b812cc_screen.jpg?ts=1637008457"
-  }]
+    console.log(true);
+  };
 
-  
-  return (
-    data?.map((arr) => {
-        return (
-          <div key={arr.id} className={styles.bookContainer}>
-        <div>
-          <img src={arr.image} width={100}/>
-        </div>
+  return readingList?.map((arr) => {
+    return (
+      <div key={arr.reading_list_id} className={styles.bookContainer}>
         <div className={styles.infoContainer}>
-          <p>{arr.listTitle}</p>
-          <Button variant="contained">View list</Button>
+          <p>{arr.reading_list_name}</p>
+          <Button
+            variant="contained"
+            onClick={() => {
+              handleClick(
+                `${user.sub.substring(user.sub.indexOf("|") + 1)}/${
+                  arr.reading_list_id
+                }`
+              );
+            }}
+          >
+            View list
+          </Button>
+          <Button
+            variant="contained"
+            onClick={() => deleteFromList(arr.reading_list_id)}
+          >
+            Delete
+          </Button>
         </div>
       </div>
-          )
-      })
-  )
+    );
+  });
 }
 
-export default ReadingList
+export default ReadingList;

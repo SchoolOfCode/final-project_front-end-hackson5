@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import BookItem from "../../components/BookItem";
 import { useRouter } from "next/router";
-import styles from "../../styles/Search.module.css"
+import styles from "../../styles/Search.module.css";
 
 function search() {
   const [data, setData] = useState();
@@ -41,17 +41,17 @@ function search() {
     setDisplayOpen(true);
   };
 
-  console.log(data)
-
   return (
     <div>
       <div>Search results for: {id}</div>
-        {displayOpen && <div className={styles.backgroundDim}></div>}
+      {displayOpen && <div className={styles.backgroundDim}></div>}
       {displayOpen && (
         <div className={styles.popupContainer}>
           <div onClick={() => setDisplayOpen(false)}>x</div>
           <div>{bookData?.title}</div>
-          <div className={styles.descriptContainer}>{bookData?.description}</div>
+          <div className={styles.descriptContainer}>
+            {bookData?.description}
+          </div>
         </div>
       )}
       <BookItem data={data} bookInfoDisplay={bookInfoDisplay} />
