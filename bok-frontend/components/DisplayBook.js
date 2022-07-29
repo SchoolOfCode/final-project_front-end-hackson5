@@ -5,21 +5,23 @@ import styles from "../styles/BookItem.module.css";
 
 export function DisplayBook({ bookList }) {
   const [bookData, setBookData] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
-      let bookData = [];
-      let testlist = ["OL82563W", "OL45883W"];
-
-      testlist.map(async (bookID) => {
+      let fetchedBookData = [];
+      bookList?.map(async (bookID) => {
         const res = await fetch(`https://openlibrary.org/works/${bookID}.json`);
         const data = await res.json();
-        bookData = [...bookData, data];
-        setBookData(bookData);
+
+        console.log(data);
+
+        fetchedBookData = [...fetchedBookData, data];
+        setBookData(fetchedBookData);
       });
     };
     fetchData();
   }, [bookList]);
-  console.log(bookData);
+
   return bookData?.map((arr, index) => {
     return (
       <div key={index} className={styles.bookContainer}>
@@ -31,7 +33,7 @@ export function DisplayBook({ bookList }) {
         </div>
         <div className={styles.infoContainer}>
           <p>{arr.title}</p>
-          <p>{arr.description}</p>
+          {/* <p>{arr.description}</p> */}
         </div>
       </div>
     );

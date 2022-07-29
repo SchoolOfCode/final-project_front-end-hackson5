@@ -4,19 +4,23 @@ export function ReadingListDropDown({
   readingListSelection,
 }) {
   return (
-    readingListData.length > 0 && (
+    readingListData?.length > 0 && (
       <select
         value={readingListSelection}
         onChange={(e) => {
-          handleChange;
+          handleChange(e);
         }}
       >
         <option hidden value="">
           Please Select a list
         </option>
-        {readingListData?.map((arr, index) => {
+        {readingListData?.map((arr) => {
           return (
-            <option key={index} value={arr.reading_list_name}>
+            <option
+              key={arr.reading_list_id}
+              id={arr.reading_list_id}
+              value={arr.reading_list_name}
+            >
               {arr.reading_list_name}
             </option>
           );

@@ -19,7 +19,7 @@ function ReadingList({ readingList }) {
     console.log(true);
   };
 
-  return readingList?.payload.map((arr) => {
+  return readingList?.map((arr) => {
     return (
       <div key={arr.reading_list_id} className={styles.bookContainer}>
         <div className={styles.infoContainer}>
