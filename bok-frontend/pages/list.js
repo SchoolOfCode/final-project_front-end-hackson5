@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { useRouter } from "next/router";
-import BookItem from "../components/BookItem";
-import { DisplayBook } from "../components/DisplayBook";
+import { DisplayBookFromUserList } from "../components/DisplayBookFromUserList";
+
+//A users individual list to see all books
 
 function individuallist() {
-  const [listId, setListId] = useState([]);
+  const [bookIDList, setbookIDList] = useState([]);
   var router = useRouter();
+
+  //user id followed by reading list id e.g /1234/4
   var id = router.query["id"];
 
+  //Fetchs all book ids for a specific reading list and passes it down to the DisplayBook component
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
@@ -22,16 +26,14 @@ function individuallist() {
         list = [...list, arr.books];
       });
 
-      setListId(list);
+      setbookIDList(list);
     };
     fetchData();
   }, [id]);
 
-  console.log(listId);
-
   return (
     <div>
-      <DisplayBook bookList={listId} readingListID={id} />
+      <DisplayBookFromUserList bookList={bookIDList} readingListID={id} />
     </div>
   );
 }
