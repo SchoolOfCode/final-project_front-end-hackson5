@@ -1,6 +1,3 @@
-//This is a component which includes a bookcover image, book title, description and an add to list button.
-//It uses data as props pass down to the component and maps through it
-import "reactjs-popup/dist/index.css";
 import { Button } from "@mui/material";
 import styles from "../styles/BookItem.module.css";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -8,12 +5,16 @@ import { useUser } from "@auth0/nextjs-auth0";
 import { useEffect, useState } from "react";
 import { ReadingListDropDown } from "./ReadingListDropDown";
 
-export default function BookItem({ data, bookInfoDisplay }) {
+//This is a component which includes a bookcover image, book title, description and an add to list button.
+//It uses data as props pass down to the component and maps through it
+
+export default function BookSearchDisplay({ data, bookInfoDisplay }) {
   const { user } = useUser();
   const [allReadingLists, setallReadingLists] = useState();
   const [readingListSelection, setReadingListSelection] = useState();
   const [listSelectionId, setListSelectionId] = useState();
 
+  //Fetchs all reading lists for a user
   useEffect(() => {
     const fetchReadingLists = async () => {
       const response = await fetch(
@@ -27,6 +28,7 @@ export default function BookItem({ data, bookInfoDisplay }) {
     fetchReadingLists();
   }, [user]);
 
+  //Sends a post request based on a user's selected reading list and adds a book to it
   const handleClick = async (bookId) => {
     const id = user.sub.substring(user.sub.indexOf("|") + 1);
     const response = await fetch(
@@ -41,6 +43,7 @@ export default function BookItem({ data, bookInfoDisplay }) {
     );
   };
 
+  //Selecting the user's reading list and saving the reading list id
   const handleSelectionChange = (e) => {
     const index = e.target.selectedIndex;
     setListSelectionId(e.target.childNodes[index].id);
@@ -65,7 +68,6 @@ export default function BookItem({ data, bookInfoDisplay }) {
             <ReadingListDropDown
               readingListData={allReadingLists}
               handleChange={handleSelectionChange}
-              readingListSelection={readingListSelection}
             />
             <Button
               variant="contained"

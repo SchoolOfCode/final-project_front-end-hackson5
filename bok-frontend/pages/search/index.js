@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
-import BookItem from "../../components/BookItem";
+import BookSearchDisplay from "../../components/BookSearchDisplay";
 import { useRouter } from "next/router";
 import styles from "../../styles/Search.module.css";
+
+//Takes in the users query and makes a fetch request based on the user input.
+//Fetchs book data matching book title and displays the first 10 results
 
 function search() {
   const [data, setData] = useState();
@@ -9,8 +12,11 @@ function search() {
   const [bookKey, setBookKey] = useState();
   const [bookData, setBookData] = useState();
   var router = useRouter();
+
+  //The users input from the search bar
   var id = router.query["id"];
 
+  //Searching the book api for books matching user input to book title and fetches data. Displays first 10
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
@@ -23,9 +29,9 @@ function search() {
     fetchData();
   }, [id]);
 
+  //Fetches more data based on results from search query and user selection.
   useEffect(() => {
     let key = bookKey?.split("/works/");
-    console.log(key);
     const fetchData = async () => {
       const res = await fetch(`https://openlibrary.org/works/${key[1]}.json`);
       const data = await res.json();
@@ -36,6 +42,7 @@ function search() {
     }
   }, [bookKey]);
 
+  //Shows more info based on selected books. Displays as popup
   const bookInfoDisplay = (key) => {
     setBookKey(key);
     setDisplayOpen(true);
@@ -54,7 +61,7 @@ function search() {
           </div>
         </div>
       )}
-      <BookItem data={data} bookInfoDisplay={bookInfoDisplay} />
+      <BookSearchDisplay data={data} bookInfoDisplay={bookInfoDisplay} />
     </div>
   );
 }
