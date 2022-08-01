@@ -1,4 +1,4 @@
-/* html,
+html,
 body {
   padding: 0;
   margin: 0;
@@ -23,10 +23,7 @@ a {
     color: white;
     background: black;
   }
-} */
-
-body {
-  background: black;
 }
+
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400&display=swap');

@@ -3,6 +3,8 @@ import Image from "next/image";
 import styles from "../styles/Login.module.css";
 import { Button } from "@mui/material";
 
+ 
+
 
 function login() {
   return (
@@ -17,7 +19,7 @@ function login() {
           variant="contained"
           size="large"
           style={{textTransform: 'none'}}
-          sx={{ width: 100, m: 5, pl: 10, pr: 10, borderRadius: 3, fontSize: 18, fontFamily: "sans-serif", fontWeight:400 }}
+          sx={{ width: 100, m: 5, pl: 10, pr: 10, borderRadius: 3, fontSize: 18, fontFamily: "Arial", fontWeight:100 }}
         >
           
           Login
