@@ -1,24 +1,12 @@
 .container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    background-color: burlywood;
+    min-width: 300px;
+    justify-content: space-evenly;
     align-items: center;
-
-}
-
-.NavbarPadding {
-    padding-left: 20%;
-    padding-right: 20%;
-}
-
-.ImagePadding {
-    margin-right: 20%;
-}
-
-.HamburgerMenu {
-    margin-left: 20%;
-}
+    background-color: #DDE7C7;
+    direction: "true"
+  }
 
 .menuContainer {
     display: flex;
@@ -42,3 +30,7 @@
     right: 0;
     background-color: #EDEEC9;
 }
+
+
+
+

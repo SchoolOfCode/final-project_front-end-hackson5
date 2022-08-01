@@ -21,18 +21,20 @@ function NavBar() {
   return (
     <div>
       <div className={styles.container}>
-        <div className={styles.ImagePadding}>
+       
           <Link href="/home">
             <a>
-              <Image src="/BokLogo.png" width="100" height="60"></Image>
+              <Image src="/BokLogo.png" width="100" height="60"  ></Image>
             </a>
           </Link>
-        </div>
+       
         <input
+          style={{backgroundColor: "#D5D6B4",  borderRadius: 4, border: "none", padding: 10  }}
           type="text"
           name="route"
-          placeholder="Search Book..."
+          placeholder="Search books..."
           value={inputContent}
+         
           onChange={(e) => {
             setRoute(e.target.value);
             setInputValue(e.target.value);
@@ -40,19 +42,7 @@ function NavBar() {
           onKeyDown={(e) => {
             e.key === "Enter" ? handleSubmit(e) : console.log(false);
           }}
-        />
-        {/* <TextField
-        id="standard-basic"
-        label="Search..."
-        variant="standard"
-        sx={{
-          color: "primary.main",
-          backgroundColor: "primary.main",
-          borderRadius: 2,
-          border: 1,
-          borderColor: "primary.main",
-        }}
-      /> */}
+        /> 
         <IconButton
           aria-label="option"
           className={styles.HamburgerMenu}
@@ -88,3 +78,5 @@ function NavBar() {
 }
 
 export default NavBar;
+
+
