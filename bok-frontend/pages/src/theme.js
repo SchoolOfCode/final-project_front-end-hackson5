@@ -8,12 +8,22 @@ const theme = createTheme({
       main: '#EDEEC9',
     },
     secondary: {
-      main: '#DCF1B3 ',
+      main: '#C1D7C6 ',
     },
     error: {
       main: red.A400,
     },
   },
+  typography: {
+   
+    fontFamily: [
+      'Inter',
+  
+      'sans-serif',
+         ].join(','),
+  },
+ 
 });
+
 
 export default theme;

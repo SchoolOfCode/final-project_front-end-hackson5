@@ -3,36 +3,42 @@ import Image from "next/image";
 import styles from "../styles/Login.module.css";
 import { Button } from "@mui/material";
 
+
 function login() {
   return (
-    <div className={styles.loginContainer}>
-      <Image src="/BokLogo.png" width="500" height="300"></Image>
-      {/* <div className={styles.buttonContainer}> */}
+    <div className={styles.pageContainer}>
+      <div className={styles.loginContainer}>
+      <Image alt="BOK logo" src="/BokLogo.png" width="500" height="300" ></Image>
+     
       <a style={{textDecoration:"none"}} href="/api/auth/login">
       
         <Button
           color="secondary"
           variant="contained"
           size="large"
-          sx={{ width: 100, m: 5, pl: 10, pr: 10 }}
+          style={{textTransform: 'none'}}
+          sx={{ width: 100, m: 5, pl: 10, pr: 10, borderRadius: 3, fontSize: 18, fontFamily: "sans-serif", fontWeight:400 }}
         >
           
           Login
         </Button>
       </a>
-      <a style={{textDecoration:"none"}} href="/api/auth/login">
+      <a style={{textDecoration:"none" }} href="/api/auth/login">
         
         <Button
+
           color="secondary"
           variant="contained"
           size="large"
-          sx={{ width: 100, pl: 10, pr: 10 }}
+          style={{textTransform: 'none'}}
+          sx={{ width: 100, pl: 10, pr: 10, borderRadius: 3, fontSize: 18 }}
         >
          
           Signup
         </Button>
       </a>
-      {/* </div> */}
+     
+     </div>
     </div>
   );
 }
