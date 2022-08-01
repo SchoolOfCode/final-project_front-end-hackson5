@@ -54,7 +54,13 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
           </div>
           <div className={styles.infoContainer}>
             <p>{arr.title}</p>
-            {arr.description && <p>{arr.description}</p>}
+            {arr.description && (
+              <p>
+                {typeof bookData?.description === "object"
+                  ? bookData?.description.value
+                  : bookData?.description}
+              </p>
+            )}
             <Button
               variant="contained"
               onClick={() => {
