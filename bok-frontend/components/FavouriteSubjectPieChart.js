@@ -91,15 +91,15 @@ export default function FavouriteSubjectPieChart() {
   );
 
   return (
-    <PieChart width={400} height={400}>
+    <PieChart width={400} height={200}>
       <Pie
         activeIndex={activeIndex}
         activeShape={renderActiveShape}
         data={data}
         cx={200}
-        cy={125}
-        innerRadius={60}
-        outerRadius={80}
+        cy={100}
+        innerRadius={40}
+        outerRadius={60}
         fill="#8884d8"
         dataKey="value"
         onMouseEnter={onPieEnter}

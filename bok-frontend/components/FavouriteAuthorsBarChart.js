@@ -4,32 +4,32 @@ import { BarChart, Bar, Cell } from "recharts";
 const data = [
   {
     name: "J.K Rolling",
-    numberOfBooks: 3
+    numberOfBooks: 3,
   },
   {
     name: "Stephen Edwin King",
-    numberOfBooks: 11
+    numberOfBooks: 11,
   },
   {
     name: "Ernest Miller Hemingway",
-    numberOfBooks: 2
+    numberOfBooks: 2,
   },
   {
     name: "Mercedes Lackey",
-    numberOfBooks: 10
+    numberOfBooks: 10,
   },
   {
     name: "Gillian Schieber Flynn",
-    numberOfBooks: 8
+    numberOfBooks: 8,
   },
   {
     name: "Jane Austen",
-    numberOfBooks: 7
+    numberOfBooks: 7,
   },
   {
     name: "George Raymond Richard Martin",
-    numberOfBooks: 4
-  }
+    numberOfBooks: 4,
+  },
 ];
 
 export default function FavouriteAuthorsBarChart() {
@@ -57,7 +57,7 @@ export default function FavouriteAuthorsBarChart() {
           ))}
         </Bar>
       </BarChart>
-      <p className="content">{`Numbers of Books Read by author ${activeItem.name}: ${activeItem.numberOfBooks}`}</p>
+      <p className="content">{`You have read ${activeItem.numberOfBooks} books written by ${activeItem.name} `}</p>
     </div>
   );
 }

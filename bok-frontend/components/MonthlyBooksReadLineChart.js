@@ -5,58 +5,58 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip
+  Tooltip,
 } from "recharts";
 
 const data = [
   {
     month: "January",
-    numberOfBooks: 5
+    "Number of Books": 5,
   },
   {
     month: "February",
-    numberOfBooks: 8
+    "Number of Books": 8,
   },
   {
     month: "March",
-    numberOfBooks: 3
+    "Number of Books": 3,
   },
   {
     month: "April",
-    numberOfBooks: 9
+    "Number of Books": 9,
   },
   {
     month: "May",
-    numberOfBooks: 5
+    "Number of Books": 5,
   },
   {
     month: "June",
-    numberOfBooks: 8
+    "Number of Books": 8,
   },
   {
     month: "July",
-    numberOfBooks: 3
+    "Number of Books": 3,
   },
   {
     month: "August",
-    numberOfBooks: 5
+    "Number of Books": 5,
   },
   {
     month: "September",
-    numberOfBooks: 2
+    "Number of Books": 2,
   },
   {
     month: "October",
-    numberOfBooks: 9
+    "Number of Books": 9,
   },
   {
     month: "November",
-    numberOfBooks: 10
+    "Number of Books": 10,
   },
   {
     month: "December",
-    numberOfBooks: 4
-  }
+    "Number of Books": 4,
+  },
 ];
 
 export default function MonthlyBooksReadLineChart() {
@@ -71,16 +71,20 @@ export default function MonthlyBooksReadLineChart() {
           top: 10,
           right: 30,
           left: 0,
-          bottom: 0
+          bottom: 0,
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="month" />
         <YAxis />
         <Tooltip />
-        <Line type="monotone" dataKey="numberOfBooks" stroke="#8884d8" fill="#8884d8" />
+        <Line
+          type="monotone"
+          dataKey="Number of Books"
+          stroke="#8884d8"
+          fill="#8884d8"
+        />
       </LineChart>
-    
     </div>
   );
 }
