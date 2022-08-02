@@ -81,7 +81,7 @@ const renderActiveShape = (props) => {
   );
 };
 
-export default function App() {
+export default function FavouriteSubjectPieChart() {
   const [activeIndex, setActiveIndex] = useState(0);
   const onPieEnter = useCallback(
     (_, index) => {
