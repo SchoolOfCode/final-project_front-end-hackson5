@@ -8,7 +8,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import SearchIcon from '@mui/icons-material/Search';
+
 
 function NavBar() {
   const router = useRouter();
