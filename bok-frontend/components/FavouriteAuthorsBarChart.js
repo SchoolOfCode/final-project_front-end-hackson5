@@ -3,56 +3,36 @@ import { BarChart, Bar, Cell } from "recharts";
 
 const data = [
   {
-    name: "January",
+    name: "J.K Rolling",
     numberOfBooks: 3
   },
   {
-    name: "February",
+    name: "Stephen Edwin King",
     numberOfBooks: 11
   },
   {
-    name: "March",
+    name: "Ernest Miller Hemingway",
     numberOfBooks: 2
   },
   {
-    name: "April",
+    name: "Mercedes Lackey",
     numberOfBooks: 10
   },
   {
-    name: "May",
+    name: "Gillian Schieber Flynn",
     numberOfBooks: 8
   },
   {
-    name: "June",
+    name: "Jane Austen",
     numberOfBooks: 7
   },
   {
-    name: "July",
+    name: "George Raymond Richard Martin",
     numberOfBooks: 4
-  },
-  {
-    name: "August",
-    numberOfBooks: 6
-  },
-  {
-    name: "September",
-    numberOfBooks: 9
-  },
-  {
-    name: "October",
-    numberOfBooks: 17
-  },
-  {
-    name: "November",
-    numberOfBooks: 4
-  },
-  {
-    name: "December",
-    numberOfBooks: 6
   }
 ];
 
-export default function MonthlyBookReadBarChart() {
+export default function FavouriteAuthorsBarChart() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeItem = data[activeIndex];
 
@@ -65,7 +45,7 @@ export default function MonthlyBookReadBarChart() {
 
   return (
     <div>
-      <p>Click each rectangle </p>
+      <p>Click to view number of books by author </p>
       <BarChart width={300} height={100} data={data}>
         <Bar dataKey="numberOfBooks" onClick={handleClick}>
           {data.map((entry, index) => (
@@ -77,7 +57,7 @@ export default function MonthlyBookReadBarChart() {
           ))}
         </Bar>
       </BarChart>
-      <p className="content">{`Numbers of Books Read in ${activeItem.name}: ${activeItem.numberOfBooks}`}</p>
+      <p className="content">{`Numbers of Books Read by author ${activeItem.name}: ${activeItem.numberOfBooks}`}</p>
     </div>
   );
 }

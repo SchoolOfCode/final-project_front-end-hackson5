@@ -4,7 +4,8 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 import FavouriteSubjectPieChart from "../components/FavouriteSubjectPieChart";
-import MonthlyBookReadBarChart from "../components/MonthlyBookReadBarChart";
+import FavouriteAuthorsBarChart from "../components/FavouriteAuthorsBarChart";
+import MonthlyBooksReadLineChart from "../components/MonthlyBooksReadLineChart";
 
 //Displays the users profile information
 
@@ -34,8 +35,12 @@ export default function user() {
           <FavouriteSubjectPieChart />
         </div>
         <div>
+          <h3>Favourite Authors</h3>
+          <FavouriteAuthorsBarChart />
+        </div>
+        <div>
           <h3>Monthly Books Read</h3>
-          <MonthlyBookReadBarChart />
+          <MonthlyBooksReadLineChart />
         </div>
       </div>
     )
