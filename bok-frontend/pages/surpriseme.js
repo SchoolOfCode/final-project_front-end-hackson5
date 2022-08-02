@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import { ReadingListDropDown } from "../components/ReadingListDropDown";
 import { Button } from "@mui/material";
+import styles from "../styles/SurpriseMe.module.css";
 
 function surpriseme() {
   const { user } = useUser();
@@ -67,7 +68,7 @@ function surpriseme() {
   };
 
   return (
-    <div>
+    <div className={styles.SurpriseMeContainer}>
       <h1>Surprise Me</h1>
       <p>Pick a subject</p>
       <input
@@ -91,7 +92,7 @@ function surpriseme() {
       >
         Find New Book
       </Button>
-      <img
+      <img className={styles.BookImageContainer}
         src={
           typeof bookData?.covers === "object"
             ? `https://covers.openlibrary.org/b/id/${bookData?.covers[0]}-L.jpg`
