@@ -6,7 +6,16 @@ function Stats() {
     <div>   
     <div>Stats</div>
     <div>You've read two books this month</div>
-    <Button variant="contained">More Stats</Button>
+    <Button
+          color="secondary"
+          variant="contained"
+          size="large"
+          style={{textTransform: 'none'}}
+          sx={{ m: 1, borderRadius: 3, fontSize: 14, fontFamily: "Arial", fontWeight:100 }}
+        >
+          
+          More Stats
+        </Button>
     </div>
   )
 }

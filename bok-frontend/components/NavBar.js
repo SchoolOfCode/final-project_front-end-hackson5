@@ -3,8 +3,9 @@ import styles from "../styles/NavBar.module.css";
 import Image from "next/image";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import { IconButton, Input, TextField } from "@mui/material";
-import InputAdornment from '@mui/material/InputAdornment'
+import { IconButton, TextField, } from "@mui/material";
+import InputAdornment from "@mui/material/InputAdornment";
+import SearchIcon from "@mui/icons-material/Search";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import SearchIcon from '@mui/icons-material/Search';
@@ -30,7 +31,7 @@ function NavBar() {
             </a>
           </Link>
        <TextField     
-        style={{backgroundColor: "#D5D6B4",  borderRadius: 6, paddingLeft: 10, paddingRight: 10 }}
+        style={{backgroundColor: "#D5D6B4",  borderRadius: 4, border: "none", padding: 6  }}
         type="text"
         placeholder="Search books..."
         variant="standard"
@@ -52,21 +53,6 @@ function NavBar() {
           }}
       >
       </TextField>
-        {/* <input
-          style={{backgroundColor: "#D5D6B4",  borderRadius: 4, border: "none", padding: 10  }}
-          type="text"
-          name="route"
-          placeholder="Search books..."
-          value={inputContent}
-         
-          onChange={(e) => {
-            setRoute(e.target.value);
-            setInputValue(e.target.value);
-          }}
-          onKeyDown={(e) => {
-            e.key === "Enter" ? handleSubmit(e) : console.log(false);
-          }}
-        />  */}
         <IconButton
           aria-label="option"
           className={styles.HamburgerMenu}

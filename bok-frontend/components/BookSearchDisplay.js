@@ -69,14 +69,39 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
               readingListData={allReadingLists}
               handleChange={handleSelectionChange}
             />
+
             <Button
-              variant="contained"
               onClick={() => handleClick(arr.key.split("/works/")[1])}
+              color="secondary"
+              variant="contained"
+              size="large"
+              style={{ textTransform: "none" }}
+              sx={{
+                m: 1,
+                borderRadius: 3,
+                fontSize: 14,
+                fontFamily: "Arial",
+                fontWeight: 100,
+              }}
             >
-              Add to list
+              Add To List
             </Button>
           </div>
-          <button onClick={() => bookInfoDisplay(arr.key)}>Open</button>
+          <Button
+            onClick={() => bookInfoDisplay(arr.key)}
+            color="secondary"
+            variant="contained"
+            size="large"
+            style={{ textTransform: "none" }}
+            sx={{
+              borderRadius: 3,
+              fontSize: 14,
+              fontFamily: "Arial",
+              fontWeight: 100,
+            }}
+          >
+            More Info
+          </Button>
         </div>
       );
     });

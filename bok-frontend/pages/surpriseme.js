@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import { ReadingListDropDown } from "../components/ReadingListDropDown";
+import { Button } from "@mui/material";
 
 function surpriseme() {
   const { user } = useUser();
@@ -74,7 +75,22 @@ function surpriseme() {
           handleChange(e);
         }}
       ></input>
-      <button onClick={handleClick}>Find new books</button>
+      <Button
+        onClick={handleClick}
+        color="secondary"
+        variant="contained"
+        size="large"
+        style={{ textTransform: "none" }}
+        sx={{
+          m: 1,
+          borderRadius: 3,
+          fontSize: 14,
+          fontFamily: "Arial",
+          fontWeight: 100,
+        }}
+      >
+        Find New Book
+      </Button>
       <img
         src={
           typeof bookData?.covers === "object"
@@ -89,7 +105,24 @@ function surpriseme() {
           readingListData={readingListData}
         />
       )}
-      {bookData && <button onClick={() => addBookToList()}>Add to list</button>}
+      {bookData && (
+        <Button
+          onClick={() => addBookToList()}
+          color="secondary"
+          variant="contained"
+          size="large"
+          style={{ textTransform: "none" }}
+          sx={{
+            m: 1,
+            borderRadius: 3,
+            fontSize: 14,
+            fontFamily: "Arial",
+            fontWeight: 100,
+          }}
+        >
+          Add To List
+        </Button>
+      )}
       <div>{bookData?.title}</div>
       <div>
         {typeof bookData?.description === "object"

@@ -28,23 +28,43 @@ function ReadingList({ readingList }) {
         <div className={styles.infoContainer}>
           <p>{arr.reading_list_name}</p>
           <Button
-            variant="contained"
-            onClick={() => {
+              onClick={() => {
               handleClick(
                 `${user.sub.substring(user.sub.indexOf("|") + 1)}/${
                   arr.reading_list_id
                 }`
               );
             }}
-          >
-            View list
-          </Button>
-          <Button
-            variant="contained"
-            onClick={() => deleteFromList(arr.reading_list_id)}
-          >
-            Delete
-          </Button>
+              color="secondary"
+              variant="contained"
+              size="large"
+              style={{ textTransform: "none" }}
+              sx={{
+                m: 1,
+                borderRadius: 3,
+                fontSize: 14,
+                fontFamily: "Arial",
+                fontWeight: 100,
+              }}
+            >
+              View List
+            </Button>
+            <Button
+              onClick={() => deleteFromList(arr.reading_list_id)}
+              color="secondary"
+              variant="contained"
+              size="large"
+              style={{ textTransform: "none" }}
+              sx={{
+                m: 1,
+                borderRadius: 3,
+                fontSize: 14,
+                fontFamily: "Arial",
+                fontWeight: 100,
+              }}
+            >
+              Delete List
+            </Button>
         </div>
       </div>
     );

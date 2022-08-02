@@ -62,12 +62,22 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
               </p>
             )}
             <Button
-              variant="contained"
               onClick={() => {
                 deleteBookFromList(arr.key.split("/works/")[1]);
               }}
+              color="secondary"
+              variant="contained"
+              size="large"
+              style={{ textTransform: "none" }}
+              sx={{
+                m: 1,
+                borderRadius: 3,
+                fontSize: 14,
+                fontFamily: "Arial",
+                fontWeight: 100,
+              }}
             >
-              Remove book from list
+              Remove Book From List
             </Button>
           </div>
         </div>

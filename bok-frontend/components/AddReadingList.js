@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "@mui/material";
 import { useUser } from "@auth0/nextjs-auth0";
 
 //Sends a post request to the database to add a new reading list for a user
@@ -21,7 +22,17 @@ function AddReadingList() {
   };
   return (
     <div>
-      <button onClick={() => handleClick()}>Add list</button>
+     <Button
+          onClick={() => handleClick()}
+          color="secondary"
+          variant="contained"
+          size="large"
+          style={{textTransform: 'none'}}
+          sx={{ m: 1, borderRadius: 3, fontSize: 14, fontFamily: "Arial", fontWeight:100 }}
+        >
+          
+          Add List
+        </Button>
       <input onChange={(e) => setUserListNameInput(e.target.value)} />
     </div>
   );
