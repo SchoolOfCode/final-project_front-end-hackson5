@@ -70,8 +70,8 @@ function surpriseme() {
   return (
     <div className={styles.SurpriseMeContainer}>
       <h1>Surprise Me</h1>
-      <p>Pick a subject</p>
-      <input
+      <p>Search for a random book on the given topic</p>
+      <input placeholder="Search Topic..."
         onChange={(e) => {
           handleChange(e);
         }}

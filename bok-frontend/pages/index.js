@@ -13,7 +13,7 @@ function login() {
           width="500"
           height="300"
         ></Image>
-
+        <div className={styles.loginButtonsContainer}>
         <a style={{ textDecoration: "none" }} href="/api/auth/login">
           <Button
             color="secondary"
@@ -22,9 +22,6 @@ function login() {
             style={{ textTransform: "none" }}
             sx={{
               width: 100,
-              m: 5,
-              pl: 10,
-              pr: 10,
               borderRadius: 3,
               fontSize: 18,
               fontFamily: "Arial",
@@ -42,8 +39,6 @@ function login() {
             style={{ textTransform: "none" }}
             sx={{
               width: 100,
-              pl: 10,
-              pr: 10,
               borderRadius: 3,
               fontSize: 18,
               color: "#484848",
@@ -52,6 +47,7 @@ function login() {
             Signup
           </Button>
         </a>
+        </div>
       </div>
     </div>
   );
