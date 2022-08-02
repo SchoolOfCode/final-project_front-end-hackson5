@@ -8,6 +8,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import SearchIcon from '@mui/icons-material/Search';
 
 function NavBar() {
   const router = useRouter();
@@ -29,30 +30,29 @@ function NavBar() {
               <Image src="/BokLogo.png" width="100" height="60"  ></Image>
             </a>
           </Link>
+       <TextField     
+        style={{backgroundColor: "#D5D6B4",  borderRadius: 4, border: "none", padding: 6  }}
+        type="text"
+        placeholder="Search books..."
+        variant="standard"
       
-        <TextField
-          style={{backgroundColor: "#D5D6B4",  borderRadius: 4, border: "none", padding: 6  }}
-          type="text"
-          name="route"
-          placeholder="Search books..."
-          value={inputContent}
-          variant="standard"
-          InputProps={{
+        InputProps={{
           disableUnderline: true,
           endAdornment: (
-            <InputAdornment position="end">
-            <SearchIcon/>          
+            <InputAdornment position="end" >
+              <SearchIcon />
             </InputAdornment>
-          )
-          }}
-          onChange={(e) => {
+          ),
+        }}
+        onChange={(e) => {
             setRoute(e.target.value);
             setInputValue(e.target.value);
           }}
-          onKeyDown={(e) => {
+        onKeyDown={(e) => {
             e.key === "Enter" ? handleSubmit(e) : console.log(false);
           }}
-        ></TextField>
+      >
+      </TextField>
         <IconButton
           aria-label="option"
           className={styles.HamburgerMenu}
