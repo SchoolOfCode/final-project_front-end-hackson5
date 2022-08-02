@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import { ReadingListDropDown } from "../components/ReadingListDropDown";
 import { Button } from "@mui/material";
+import styles from "../styles/SurpriseMe.module.css";
 
 function surpriseme() {
   const { user } = useUser();
@@ -67,10 +68,10 @@ function surpriseme() {
   };
 
   return (
-    <div>
+    <div className={styles.SurpriseMeContainer}>
       <h1>Surprise Me</h1>
-      <p>Pick a subject</p>
-      <input
+      <p>Search for a random book on the given topic</p>
+      <input placeholder="Search Topic..."
         onChange={(e) => {
           handleChange(e);
         }}
@@ -91,14 +92,17 @@ function surpriseme() {
       >
         Find New Book
       </Button>
-      <img
-        src={
-          typeof bookData?.covers === "object"
-            ? `https://covers.openlibrary.org/b/id/${bookData?.covers[0]}-L.jpg`
-            : `https://covers.openlibrary.org/b/id/${bookData?.covers}-L.jpg`
-        }
-        alt={bookData?.title}
-      />
+      {bookData && (
+        <img
+          className={styles.BookImageContainer}
+          src={
+            typeof bookData?.covers === "object"
+              ? `https://covers.openlibrary.org/b/id/${bookData?.covers[0]}-L.jpg`
+              : `https://covers.openlibrary.org/b/id/${bookData?.covers}-L.jpg`
+          }
+          alt={bookData?.title}
+        />
+      )}
       {bookData && (
         <ReadingListDropDown
           handleChange={handleSelectionChange}
