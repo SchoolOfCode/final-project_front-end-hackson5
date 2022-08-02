@@ -36,7 +36,7 @@ function NavBar() {
         placeholder="Search books..."
         variant="standard"
       
-        InputProps={{
+         InputProps={{
           disableUnderline: true,
           endAdornment: (
             <InputAdornment position="end" >
