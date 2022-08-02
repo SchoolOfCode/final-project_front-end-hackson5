@@ -50,6 +50,8 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
     setReadingListSelection(e.target.value);
   };
 
+  console.log(data);
+
   if (!data) {
     return <CircularProgress />;
   } else {
@@ -58,13 +60,17 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
         <div key={index} className={styles.bookContainer}>
           <div>
             <img
-              src={`https://covers.openlibrary.org/b/id/${arr.cover_i}-L.jpg`}
+              src={
+                typeof arr.covers === "object"
+                  ? `https://covers.openlibrary.org/b/id/${arr.covers[0]}-L.jpg`
+                  : `https://covers.openlibrary.org/b/id/${arr.covers}-L.jpg`
+              }
               width={100}
             />
           </div>
           <div className={styles.infoContainer}>
             <p>{arr.title}</p>
-            <p>{arr.author_name[0]}</p>
+            <p>{!arr.author_name ? "Author Unknown" : arr.author_name[0]}</p>
             <ReadingListDropDown
               readingListData={allReadingLists}
               handleChange={handleSelectionChange}
