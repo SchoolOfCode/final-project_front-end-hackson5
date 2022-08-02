@@ -3,9 +3,11 @@ import styles from "../styles/NavBar.module.css";
 import Image from "next/image";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import { IconButton } from "@mui/material";
+import { IconButton, Input, TextField } from "@mui/material";
+import InputAdornment from '@mui/material/InputAdornment'
 import Link from "next/link";
 import { useRouter } from "next/router";
+import SearchIcon from '@mui/icons-material/Search';
 
 function NavBar() {
   const router = useRouter();
@@ -27,8 +29,30 @@ function NavBar() {
               <Image src="/BokLogo.png" width="100" height="60"  ></Image>
             </a>
           </Link>
-       
-        <input
+       <TextField     
+        style={{backgroundColor: "#D5D6B4",  borderRadius: 6, paddingLeft: 10, paddingRight: 10 }}
+        type="text"
+        placeholder="Search books..."
+        variant="standard"
+      
+        InputProps={{
+          disableUnderline: true,
+          endAdornment: (
+            <InputAdornment position="end" >
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
+        onChange={(e) => {
+            setRoute(e.target.value);
+            setInputValue(e.target.value);
+          }}
+        onKeyDown={(e) => {
+            e.key === "Enter" ? handleSubmit(e) : console.log(false);
+          }}
+      >
+      </TextField>
+        {/* <input
           style={{backgroundColor: "#D5D6B4",  borderRadius: 4, border: "none", padding: 10  }}
           type="text"
           name="route"
@@ -42,7 +66,7 @@ function NavBar() {
           onKeyDown={(e) => {
             e.key === "Enter" ? handleSubmit(e) : console.log(false);
           }}
-        /> 
+        />  */}
         <IconButton
           aria-label="option"
           className={styles.HamburgerMenu}
