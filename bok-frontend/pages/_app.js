@@ -4,8 +4,8 @@ import Head from "next/head";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider } from "@emotion/react";
-import theme from "./src/theme";
-import createEmotionCache from "./src/createEmotionCache";
+import theme from "../MUItheme/theme"
+import createEmotionCache from "../MUItheme/createEmotionCache";
 import Layout from "../components/Layout";
 import { useRouter } from "next/router";
 import { UserProvider } from "@auth0/nextjs-auth0";
