@@ -92,14 +92,17 @@ function surpriseme() {
       >
         Find New Book
       </Button>
-      <img className={styles.BookImageContainer}
-        src={
-          typeof bookData?.covers === "object"
-            ? `https://covers.openlibrary.org/b/id/${bookData?.covers[0]}-L.jpg`
-            : `https://covers.openlibrary.org/b/id/${bookData?.covers}-L.jpg`
-        }
-        alt={bookData?.title}
-      />
+      {bookData && (
+        <img
+          className={styles.BookImageContainer}
+          src={
+            typeof bookData?.covers === "object"
+              ? `https://covers.openlibrary.org/b/id/${bookData?.covers[0]}-L.jpg`
+              : `https://covers.openlibrary.org/b/id/${bookData?.covers}-L.jpg`
+          }
+          alt={bookData?.title}
+        />
+      )}
       {bookData && (
         <ReadingListDropDown
           handleChange={handleSelectionChange}
