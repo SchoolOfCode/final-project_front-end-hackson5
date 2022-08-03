@@ -24,8 +24,8 @@ function AllReadingLists() {
 
   return (
     <div>
-      <AddReadingList />
-      <ReadingList readingList={readingList} />
+      <AddReadingList setReadingList={setReadingList} />
+      <ReadingList readingList={readingList} setReadingList={setReadingList} />
     </div>
   );
 }

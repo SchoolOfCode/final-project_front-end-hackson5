@@ -11,6 +11,7 @@ function surpriseme() {
   const [bookData, setBookData] = useState();
   const [readingListData, setReadingListData] = useState();
   const [listSelectionId, setListSelectionId] = useState();
+  const [warning, setWarning] = useState(false)
 
   const handleChange = (e) => {
     setuserInput(e.target.value);
@@ -23,6 +24,12 @@ function surpriseme() {
     );
     const data = await response.json();
     setBookID(data.docs[randomNumber].key);
+    if (userInput.length < 3) {
+      setWarning(true)
+      console.log("this is wrong")
+    } else {
+      setWarning(false)
+    }
   };
 
   useEffect(() => {
@@ -70,14 +77,49 @@ function surpriseme() {
   return (
     <div className={styles.SurpriseMeContainer}>
       <h1>Surprise Me</h1>
-      <div>
-        <input
-          className={styles.search}
-          placeholder="Search Topic..."
-          onChange={(e) => {
-            handleChange(e);
-          }}
-        ></input>
+      <p>Search for a random book on the given topic</p>
+     {warning && <p >Your search needs to be more than three characters!</p>}
+      <input className={styles.search} placeholder="Search Topic..."
+        onChange={(e) => {
+          handleChange(e);
+        }}
+        type="text"
+        required minlength={3}
+      ></input>
+      <Button
+        onClick={handleClick}
+        color="secondary"
+        variant="contained"
+        size="large"
+        style={{ textTransform: "none" }}
+        sx={{
+          m: 1,
+          borderRadius: 3,
+          fontSize: 14,
+          fontFamily: "Arial",
+          fontWeight: 100,
+        }}
+      >
+        Find New Book
+      </Button>
+      {bookData && (
+        <img
+          className={styles.BookImageContainer}
+          src={
+            typeof bookData?.covers === "object"
+              ? `https://covers.openlibrary.org/b/id/${bookData?.covers[0]}-L.jpg`
+              : `https://covers.openlibrary.org/b/id/${bookData?.covers}-L.jpg`
+          }
+          alt={bookData?.title}
+        />
+      )}
+      {bookData && (
+        <ReadingListDropDown
+          handleChange={handleSelectionChange}
+          readingListData={readingListData}
+        />
+      )}
+      {bookData && (
         <Button
           onClick={handleClick}
           color="secondary"
