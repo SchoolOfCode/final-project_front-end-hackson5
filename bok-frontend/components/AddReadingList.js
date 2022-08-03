@@ -4,7 +4,7 @@ import { useUser } from "@auth0/nextjs-auth0";
 
 //Sends a post request to the database to add a new reading list for a user
 
-function AddReadingList() {
+function AddReadingList({setReadingList}) {
   const { user } = useUser();
   const [userListNameInput, setUserListNameInput] = useState("");
 
@@ -18,8 +18,19 @@ function AddReadingList() {
         user_id: id,
         reading_list_name: userListNameInput,
       }),
-    });
-  };
+    }).then (
+      async () => {
+      const res = await fetch(
+        `https://hackson5.herokuapp.com/readinglist/${user.sub.substring(
+          user.sub.indexOf("|") + 1
+        )}`
+      );
+      const data = await res.json();
+      setReadingList(data.payload);
+    })
+  }
+
+
   return (
     <div>
      <Button
