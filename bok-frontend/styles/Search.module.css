@@ -1,3 +1,10 @@
+.searchResultsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FAF9F6;
+}
+
 .popupContainer {
     position: fixed;
     display: flex;
@@ -5,8 +12,9 @@
     word-wrap: break-word;
     padding-top: 10px;
     padding-bottom: 10px;
-    left: 10%;
-    width: 80vw;
+    left: 30%;
+    top: 30%;
+    width: 50vw;
     background-color: #EDEEC9;
     z-index: 1;
     opacity: 0;
@@ -16,6 +24,7 @@
     justify-content: center;
     border-radius: 8px;
 }
+
 .popupOpen {
     opacity: 1;
     visibility: visible;
@@ -31,6 +40,7 @@
 
 .descriptContainer {
     width: 70%;
+    margin-bottom: 10px;
 }
 
 .backgroundDim {
@@ -51,6 +61,11 @@
 }
 
 @media (max-width: 40rem) {
+    .popupContainer {
+     width: 80vw;
+        left: 8%;
+     top: 5%;
+    }
     .closeIcon {
         margin-left: 86%;
     }

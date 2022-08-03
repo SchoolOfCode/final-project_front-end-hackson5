@@ -58,56 +58,59 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
     return data?.map((arr, index) => {
       return (
         <div key={index} className={styles.bookContainer}>
-          <div>
-            <img
-              src={
-                typeof arr.covers === "object"
-                  ? `https://covers.openlibrary.org/b/id/${arr.cover_i[0]}-L.jpg`
-                  : `https://covers.openlibrary.org/b/id/${arr.cover_i}-L.jpg`
-              }
-              width={100}
-            />
-          </div>
           <div className={styles.infoContainer}>
-            <p>{arr.title}</p>
-            <p>{!arr.author_name ? "Author Unknown" : arr.author_name[0]}</p>
-            <ReadingListDropDown
-              readingListData={allReadingLists}
-              handleChange={handleSelectionChange}
-            />
-
-            <Button
-              onClick={() => handleClick(arr.key.split("/works/")[1])}
-              color="secondary"
-              variant="contained"
-              size="large"
-              style={{ textTransform: "none" }}
-              sx={{
-                m: 1,
-                borderRadius: 3,
-                fontSize: 14,
-                fontFamily: "Arial",
-                fontWeight: 100,
-              }}
-            >
-              Add To List
-            </Button>
+            <div>
+              <img
+                className={styles.searchImage}
+                src={
+                  typeof arr.covers === "object"
+                    ? `https://covers.openlibrary.org/b/id/${arr.cover_i[0]}-L.jpg`
+                    : `https://covers.openlibrary.org/b/id/${arr.cover_i}-L.jpg`
+                }
+                width={100}
+              />
+            </div>
+            <div className={styles.contentContainer}>
+              <p>{arr.title}</p>
+              <p>{!arr.author_name ? "Author Unknown" : arr.author_name[0]}</p>
+              <Button
+                onClick={() => bookInfoDisplay(arr.key)}
+                color="secondary"
+                variant="contained"
+                size="large"
+                style={{ textTransform: "none" }}
+                sx={{
+                  borderRadius: 3,
+                  fontSize: 14,
+                  fontFamily: "Arial",
+                  fontWeight: 100,
+                }}
+              >
+                More Info
+              </Button>
+              <div>
+                <ReadingListDropDown
+                  readingListData={allReadingLists}
+                  handleChange={handleSelectionChange}
+                />
+                <Button
+                  onClick={() => handleClick(arr.key.split("/works/")[1])}
+                  color="secondary"
+                  variant="contained"
+                  size="large"
+                  style={{ textTransform: "none" }}
+                  sx={{
+                    borderRadius: 3,
+                    fontSize: 14,
+                    fontFamily: "Arial",
+                    fontWeight: 100,
+                  }}
+                >
+                  Add To List
+                </Button>
+              </div>
+            </div>
           </div>
-          <Button
-            onClick={() => bookInfoDisplay(arr.key)}
-            color="secondary"
-            variant="contained"
-            size="large"
-            style={{ textTransform: "none" }}
-            sx={{
-              borderRadius: 3,
-              fontSize: 14,
-              fontFamily: "Arial",
-              fontWeight: 100,
-            }}
-          >
-            More Info
-          </Button>
         </div>
       );
     });

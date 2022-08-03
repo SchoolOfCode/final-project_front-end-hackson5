@@ -11,7 +11,7 @@ export function ReadingListDropDown({ readingListData, handleChange }) {
         }}
       >
         <option hidden value="">
-          Please Select a list
+          Select a list
         </option>
         {readingListData?.map((arr) => {
           return (

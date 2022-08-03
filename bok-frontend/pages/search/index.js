@@ -49,21 +49,32 @@ function search() {
     setDisplayOpen(true);
   };
 
-  
-
   return (
-    <div>
-      <div>Search results for: {id}</div>
-      {displayOpen && <div className={styles.backgroundDim} onClick={() => setDisplayOpen(false)}></div>}
-          <div className={ displayOpen ? `${styles.popupContainer} ${styles.popupOpen}`: styles.popupContainer }>
-          <CloseIcon className={styles.closeIcon} onClick={() => setDisplayOpen(false)}/>
-          <div className={styles.popupTitle}>{bookData?.title}</div>
-          <div className={styles.descriptContainer}>
-            {typeof bookData?.description === "object"
-                  ? bookData?.description.value
-                  : bookData?.description}
-          </div>
+    <div className={styles.searchResultsContainer}>
+      {displayOpen && (
+        <div
+          className={styles.backgroundDim}
+          onClick={() => setDisplayOpen(false)}
+        ></div>
+      )}
+      <div
+        className={
+          displayOpen
+            ? `${styles.popupContainer} ${styles.popupOpen}`
+            : styles.popupContainer
+        }
+      >
+        <CloseIcon
+          className={styles.closeIcon}
+          onClick={() => setDisplayOpen(false)}
+        />
+        <div className={styles.popupTitle}>{bookData?.title}</div>
+        <div className={styles.descriptContainer}>
+          {typeof bookData?.description === "object"
+            ? bookData?.description.value
+            : bookData?.description}
         </div>
+      </div>
       <BookSearchDisplay data={data} bookInfoDisplay={bookInfoDisplay} />
     </div>
   );
