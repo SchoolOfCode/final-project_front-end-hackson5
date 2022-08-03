@@ -11,6 +11,7 @@ function surpriseme() {
   const [bookData, setBookData] = useState();
   const [readingListData, setReadingListData] = useState();
   const [listSelectionId, setListSelectionId] = useState();
+  const [warning, setWarning] = useState(false)
 
   const handleChange = (e) => {
     setuserInput(e.target.value);
@@ -23,6 +24,12 @@ function surpriseme() {
     );
     const data = await response.json();
     setBookID(data.docs[randomNumber].key);
+    if (userInput.length < 3) {
+      setWarning(true)
+      console.log("this is wrong")
+    } else {
+      setWarning(false)
+    }
   };
 
   useEffect(() => {
@@ -71,10 +78,13 @@ function surpriseme() {
     <div className={styles.SurpriseMeContainer}>
       <h1>Surprise Me</h1>
       <p>Search for a random book on the given topic</p>
+     {warning && <p >Your search needs to be more than three characters!</p>}
       <input placeholder="Search Topic..."
         onChange={(e) => {
           handleChange(e);
         }}
+        type="text"
+        required minlength={3}
       ></input>
       <Button
         onClick={handleClick}
