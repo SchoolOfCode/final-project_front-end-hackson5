@@ -1,4 +1,5 @@
 import styles from "../styles/BookItem.module.css";
+import {useState} from "react"
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";
@@ -10,9 +11,11 @@ function ReadingList({ readingList, setReadingList }) {
   const { user } = useUser();
   const router = useRouter();
   
+
+
   //Navigates to the individual list page based on user list selection
   const handleClick = (route) => {
-    router.push("list/?id=" + route);
+    router.push(`list/?id=${route}`);
   };
 
   //Deletes a user's list and sends the request to the database.
@@ -32,22 +35,33 @@ function ReadingList({ readingList, setReadingList }) {
   };
 
 
-  //need a way of identifying readling list id - reading_list_id?
-  //compare reading_list_id? with readinglist state that has been handed down as prop
-  //slice the readinglist state, removed the matched id
-  //return new array of reading lists
+
+
+  
+
+
+//provide field for input when edit button clicked ✔️
+  //input field to display on button click✔️
+//store input given✔️
+//send input given with the patch request
+
+
 
   return readingList?.map((arr) => {
     return (
       <div key={arr.reading_list_id} className={styles.bookContainer}>
         <div className={styles.infoContainer}>
           <p>{arr.reading_list_name}</p>
+         
+        
+
+           
           <Button
               onClick={() => {
               handleClick(
                 `${user.sub.substring(user.sub.indexOf("|") + 1)}/${
-                  arr.reading_list_id
-                }`
+                  arr.reading_list_id}/${arr.reading_list_name}
+                `
               );
             }}
               color="secondary"
@@ -80,6 +94,7 @@ function ReadingList({ readingList, setReadingList }) {
             >
               Delete List
             </Button>
+            
         </div>
       </div>
     );
