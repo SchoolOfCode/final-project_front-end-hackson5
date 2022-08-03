@@ -3,12 +3,13 @@ import { Button } from "@mui/material";
 import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";
 
+
 //Fetches all user's reading list and displays on Home and myLists pages.
 
-function ReadingList({ readingList }) {
+function ReadingList({ readingList, setReadingList }) {
   const { user } = useUser();
   const router = useRouter();
-
+  
   //Navigates to the individual list page based on user list selection
   const handleClick = (route) => {
     router.push("list/?id=" + route);
@@ -20,7 +21,21 @@ function ReadingList({ readingList }) {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     });
+    const deletedListId = readingList.findIndex((list) => {
+      return list.reading_list_id === id;
+    });
+    const newListArray = [
+      ...readingList.slice(0, deletedListId),
+      ...readingList.slice(deletedListId + 1),
+    ];
+    setReadingList(newListArray);
   };
+
+
+  //need a way of identifying readling list id - reading_list_id?
+  //compare reading_list_id? with readinglist state that has been handed down as prop
+  //slice the readinglist state, removed the matched id
+  //return new array of reading lists
 
   return readingList?.map((arr) => {
     return (
