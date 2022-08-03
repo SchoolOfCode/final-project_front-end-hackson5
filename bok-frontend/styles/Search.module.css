@@ -1,13 +1,32 @@
 .popupContainer {
-    position: absolute;
+    position: fixed;
     display: flex;
+    flex-direction: column;
     word-wrap: break-word;
     padding-top: 5%;
     padding-bottom: 5%;
     left: 10%;
     width: 80vw;
-    background-color: aquamarine;
+    background-color: #EDEEC9;
     z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: 300ms;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+.popupOpen {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popupTitle {
+    font-size: 1.1em;
+    padding: 10px;
+    text-align: center;
+    width: 70%;
+ 
 }
 
 .descriptContainer {
@@ -16,11 +35,21 @@
 
 .backgroundDim {
     content: "";
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background-color: rgb(0,0,0,.5);
     width: 100vw;
     height: 100vh;
     z-index: 1;
+}
+.closeIcon {
+    cursor: pointer;
+    margin: 3%;
+    width: 25px;
+    height: 25px;
+    position: fixed;
+    top: 9%;
+    right: 17%;
+    
 }
