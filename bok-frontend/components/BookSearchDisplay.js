@@ -62,8 +62,8 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
             <img
               src={
                 typeof arr.covers === "object"
-                  ? `https://covers.openlibrary.org/b/id/${arr.covers[0]}-L.jpg`
-                  : `https://covers.openlibrary.org/b/id/${arr.covers}-L.jpg`
+                  ? `https://covers.openlibrary.org/b/id/${arr.cover_i[0]}-L.jpg`
+                  : `https://covers.openlibrary.org/b/id/${arr.cover_i}-L.jpg`
               }
               width={100}
             />
