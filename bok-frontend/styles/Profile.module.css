@@ -1,0 +1,49 @@
+
+.ProfileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FAF9F6;
+}
+
+.UserContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(00, 00, 00, 0.3);
+    width: 90%;
+
+}
+
+.UserAvatar {
+    border-radius: 50%;
+    margin: 10px;
+    width: 80px;
+    height: 80px
+
+}
+
+.StatsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #EDEEC9;
+    margin-top: 25px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.StarAndTotBooks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+@media (min-width: 45rem) {
+    .UserContainer { 
+        width: 40%;
+    }
+}

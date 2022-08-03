@@ -145,11 +145,6 @@ function NavBar() {
               Profile
             </a>
           </Link>
-          <Link href="/stats">
-            <a className={styles.menuLinks} onClick={() => setMenuOpen(false)}>
-              Stats
-            </a>
-          </Link>
           <Link href="/myLists">
             <a className={styles.menuLinks} onClick={() => setMenuOpen(false)}>
               My Lists

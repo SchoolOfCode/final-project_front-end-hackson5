@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import ReadingList from "../components/ReadingList";
-import Stats from "../components/Stats";
 import styles from "../styles/Home.module.css";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { useUser } from "@auth0/nextjs-auth0";
@@ -33,7 +32,6 @@ function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Stats />
       <ReadingList readingList={readingList} />
     </div>
   );
