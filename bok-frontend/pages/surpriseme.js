@@ -70,8 +70,12 @@ function surpriseme() {
   return (
     <div className={styles.SurpriseMeContainer}>
       <h1>Surprise Me</h1>
-      <p>Search for a random book on the given topic</p>
-      <input placeholder="Search Topic..."
+      <div className={styles.subHeader}>
+        Search for a random book on the given topic
+      </div>
+      <input
+        className={styles.search}
+        placeholder="Search Topic..."
         onChange={(e) => {
           handleChange(e);
         }}
@@ -93,46 +97,55 @@ function surpriseme() {
         Find New Book
       </Button>
       {bookData && (
-        <img
-          className={styles.BookImageContainer}
-          src={
-            typeof bookData?.covers === "object"
-              ? `https://covers.openlibrary.org/b/id/${bookData?.covers[0]}-L.jpg`
-              : `https://covers.openlibrary.org/b/id/${bookData?.covers}-L.jpg`
-          }
-          alt={bookData?.title}
-        />
+        <div className={styles.contentContainer}>
+          {bookData && (
+            <img
+              className={styles.BookImageContainer}
+              src={
+                typeof bookData?.covers === "object"
+                  ? `https://covers.openlibrary.org/b/id/${bookData?.covers[0]}-L.jpg`
+                  : `https://covers.openlibrary.org/b/id/${bookData?.covers}-L.jpg`
+              }
+              alt={bookData?.title}
+            />
+          )}
+
+          <div className={styles.descriptionContainer}>
+            <div className={styles.descriptionTitle}>{bookData?.title}</div>
+            <div>
+              {typeof bookData?.description === "object"
+                ? bookData?.description.value
+                : bookData?.description}
+            </div>
+            <div className={styles.descriptionButtonContainer}>
+              {bookData && (
+                <ReadingListDropDown
+                  handleChange={handleSelectionChange}
+                  readingListData={readingListData}
+                />
+              )}
+              {bookData && (
+                <Button
+                  onClick={() => addBookToList()}
+                  color="secondary"
+                  variant="contained"
+                  size="large"
+                  style={{ textTransform: "none" }}
+                  sx={{
+                    m: 1,
+                    borderRadius: 3,
+                    fontSize: 14,
+                    fontFamily: "Arial",
+                    fontWeight: 100,
+                  }}
+                >
+                  Add to list
+                </Button>
+              )}
+            </div>
+          </div>
+        </div>
       )}
-      {bookData && (
-        <ReadingListDropDown
-          handleChange={handleSelectionChange}
-          readingListData={readingListData}
-        />
-      )}
-      {bookData && (
-        <Button
-          onClick={() => addBookToList()}
-          color="secondary"
-          variant="contained"
-          size="large"
-          style={{ textTransform: "none" }}
-          sx={{
-            m: 1,
-            borderRadius: 3,
-            fontSize: 14,
-            fontFamily: "Arial",
-            fontWeight: 100,
-          }}
-        >
-          Add To List
-        </Button>
-      )}
-      <div>{bookData?.title}</div>
-      <div>
-        {typeof bookData?.description === "object"
-          ? bookData?.description.value
-          : bookData?.description}
-      </div>
     </div>
   );
 }
