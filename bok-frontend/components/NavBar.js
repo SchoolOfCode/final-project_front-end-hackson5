@@ -13,7 +13,7 @@ import { useUser } from "@auth0/nextjs-auth0";
 function NavBar() {
   const router = useRouter();
   const { user, error, isLoading } = useUser();
-  const [inputContent, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [route, setRoute] = useState();
   const handleSubmit = (e) => {
@@ -39,6 +39,7 @@ function NavBar() {
               padding: 6,
             }}
             type="text"
+            value={inputValue}
             placeholder="Search books..."
             variant="standard"
             InputProps={{
@@ -142,11 +143,6 @@ function NavBar() {
           <Link href="/profile">
             <a className={styles.menuLinks} onClick={() => setMenuOpen(false)}>
               Profile
-            </a>
-          </Link>
-          <Link href="/stats">
-            <a className={styles.menuLinks} onClick={() => setMenuOpen(false)}>
-              Stats
             </a>
           </Link>
           <Link href="/myLists">

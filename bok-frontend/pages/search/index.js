@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import BookSearchDisplay from "../../components/BookSearchDisplay";
 import { useRouter } from "next/router";
+import CloseIcon from "@mui/icons-material/Close";
 import styles from "../../styles/Search.module.css";
 
 //Takes in the users query and makes a fetch request based on the user input.
@@ -49,18 +50,31 @@ function search() {
   };
 
   return (
-    <div>
-      <div>Search results for: {id}</div>
-      {displayOpen && <div className={styles.backgroundDim}></div>}
+    <div className={styles.searchResultsContainer}>
       {displayOpen && (
-        <div className={styles.popupContainer}>
-          <div onClick={() => setDisplayOpen(false)}>x</div>
-          <div>{bookData?.title}</div>
-          <div className={styles.descriptContainer}>
-            {bookData?.description}
-          </div>
-        </div>
+        <div
+          className={styles.backgroundDim}
+          onClick={() => setDisplayOpen(false)}
+        ></div>
       )}
+      <div
+        className={
+          displayOpen
+            ? `${styles.popupContainer} ${styles.popupOpen}`
+            : styles.popupContainer
+        }
+      >
+        <CloseIcon
+          className={styles.closeIcon}
+          onClick={() => setDisplayOpen(false)}
+        />
+        <div className={styles.popupTitle}>{bookData?.title}</div>
+        <div className={styles.descriptContainer}>
+          {typeof bookData?.description === "object"
+            ? bookData?.description.value
+            : bookData?.description}
+        </div>
+      </div>
       <BookSearchDisplay data={data} bookInfoDisplay={bookInfoDisplay} />
     </div>
   );
