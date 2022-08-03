@@ -45,11 +45,7 @@
 }
 .closeIcon {
     cursor: pointer;
-    margin: 3%;
     width: 25px;
     height: 25px;
-    position: fixed;
-    top: 9%;
-    right: 17%;
-    
+    margin-left: 90%;
 }
