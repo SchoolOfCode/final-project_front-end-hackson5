@@ -106,41 +106,7 @@ function surpriseme() {
       >
         Find New Book
       </Button>
-      {bookData && (
-        <img
-          className={styles.BookImageContainer}
-          src={
-            typeof bookData?.covers === "object"
-              ? `https://covers.openlibrary.org/b/id/${bookData?.covers[0]}-L.jpg`
-              : `https://covers.openlibrary.org/b/id/${bookData?.covers}-L.jpg`
-          }
-          alt={bookData?.title}
-        />
-      )}
-      {bookData && (
-        <ReadingListDropDown
-          handleChange={handleSelectionChange}
-          readingListData={readingListData}
-        />
-      )}
-      {bookData && (
-        <Button
-          onClick={handleClick}
-          color="secondary"
-          variant="contained"
-          size="large"
-          style={{ textTransform: "none" }}
-          sx={{
-            m: 1,
-            borderRadius: 3,
-            fontSize: 14,
-            fontFamily: "Arial",
-            fontWeight: 100,
-          }}
-        >
-          Find New Book
-        </Button>
-      )}
+
       {bookData && (
         <div className={styles.contentContainer}>
           <div className={styles.descriptionContainer}>
