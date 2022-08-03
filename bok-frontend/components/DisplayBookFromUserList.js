@@ -34,6 +34,22 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
         headers: { "Content-Type": "application/json" },
       }
     );
+
+    const deletedBookIndex = bookData.findIndex((books) => {
+      return books.key === `/works/${bookID}`;
+    });
+
+    const newBookArray = [
+      ...bookData.slice(0, deletedBookIndex),
+      ...bookData.slice(deletedBookIndex + 1),
+    ];
+    setBookData(newBookArray);
+
+    //bookData[0].key.includes(`/works/${bookID}`)
+    //match the passed bookid to the bookData state key.
+    //remove matched element from bookData
+    //spread new bookdata into new array
+    //setBookData to the new spread array
   };
 
   if (bookData.length === 0) {
