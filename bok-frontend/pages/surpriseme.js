@@ -111,7 +111,7 @@ function surpriseme() {
             )}
             <div className={styles.surpriseContentContainer}>
               <div className={styles.descriptionTitle}>{bookData?.title}</div>
-              <div>
+              <div style={{ margin: 5 }}>
                 {typeof bookData?.description === "object"
                   ? bookData?.description.value
                   : bookData?.description}
