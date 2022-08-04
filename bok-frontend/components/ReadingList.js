@@ -11,6 +11,7 @@ function ReadingList({ readingList, setReadingList }) {
   const router = useRouter();
   const [bookData, setBookData] = useState([]);
   const [bookCoverID, setBookCoverID] = useState([]);
+  const [godState, setGodState] = useState([]);
 
   //Navigates to the individual list page based on user list selection
   const handleClick = (route) => {
@@ -36,19 +37,51 @@ function ReadingList({ readingList, setReadingList }) {
   useEffect(() => {
     const fetchData = async () => {
       let fetchedBookData = [];
+
       bookCoverID?.map(async (bookID) => {
-        const res = await fetch(`https://openlibrary.org/works/${bookID}.json`);
-        const data = await res.json();
-        console.log(data);
-        if (data === undefined) {
-          setBookData([...fetchedBookData, "9623925"]);
+        if (bookID.bookID === undefined) {
+          fetchedBookData = [
+            ...fetchedBookData,
+            { index: bookID.readingListID, coverID: "9623925" },
+          ];
+          return;
         }
-        fetchedBookData = [...fetchedBookData, data.covers[0]];
+        const res = await fetch(
+          `https://openlibrary.org/works/${bookID.bookID}.json`
+        );
+        const data = await res.json();
+
+        fetchedBookData = [
+          ...fetchedBookData,
+          { index: bookID.readingListID, coverID: data.covers[0] },
+        ];
         setBookData(fetchedBookData);
       });
+      setBookData(fetchedBookData);
     };
     fetchData();
   }, [bookCoverID]);
+  let mapResults = [];
+
+  useEffect(() => {
+    bookData?.map((listData) => {
+      readingList?.map((listID) => {
+        if (listID.reading_list_id === listData.index) {
+          mapResults = [
+            ...mapResults,
+            {
+              reading_list_id: listID.reading_list_id,
+              reading_list_name: listID.reading_list_name,
+              user_id: listID.user_id,
+              coverID: listData.coverID,
+            },
+          ];
+          return;
+        }
+      });
+      setGodState(mapResults);
+    });
+  }, [bookData]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,20 +93,26 @@ function ReadingList({ readingList, setReadingList }) {
           )}/${readinglistID.reading_list_id}`
         );
         const data = await res.json();
-        bookID = [...bookID, data?.payload[0]?.books];
+        bookID = [
+          ...bookID,
+          {
+            readingListID: readinglistID.reading_list_id,
+            bookID: data?.payload[0]?.books,
+          },
+        ];
         setBookCoverID(bookID);
       });
     };
     fetchData();
   }, [readingList]);
 
-  return readingList?.map((arr, index) => {
+  return godState?.map((arr, index) => {
     return (
       <div key={arr.reading_list_id} className={styles.bookContainer}>
         <div className={styles.infoContainer}>
           <p>{arr.reading_list_name}</p>
           <img
-            src={`https://covers.openlibrary.org/b/id/${bookData[index]}-L.jpg`}
+            src={`https://covers.openlibrary.org/b/id/${arr.coverID}-L.jpg`}
             width={100}
           />
           <div>

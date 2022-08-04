@@ -46,7 +46,7 @@ function Home() {
         <h3>Favourite Authors</h3>
         <FavouriteAuthorsBarChart />
       </div>
-      <ReadingList readingList={readingList} />
+      <ReadingList readingList={readingList} setReadingList={setReadingList} />
     </div>
   );
 }
