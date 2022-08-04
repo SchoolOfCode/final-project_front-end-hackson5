@@ -35,18 +35,20 @@ function Home() {
         <title>BOK</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className={styles.WelcomeImg}>
       <Image
-        alt="Welcome to BOK"
-        src="/Welcome.png"
-        width="400"
-        height="300"
-      ></Image>
-
-      <div>
-        <h3>Favourite Authors</h3>
-        <FavouriteAuthorsBarChart />
-      </div>
+          alt="Welcome to BOK"
+          src="/Welcome.png"
+          width="400"
+          height="300"
+        ></Image>
+        </div>     
+        <div className={styles.FavAutChart}>
+          <h3>Favourite Authors</h3>
+          <div className={styles.FavAutBarChart}><FavouriteAuthorsBarChart /></div>
+        </div>
       <ReadingList readingList={readingList} setReadingList={setReadingList} />
+
     </div>
   );
 }

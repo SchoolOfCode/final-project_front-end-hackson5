@@ -3,15 +3,15 @@ import { BarChart, Bar, Cell } from "recharts";
 
 const data = [
   {
-    name: "J.K Rolling",
+    name: "J.K. Rowling",
     numberOfBooks: 3,
   },
   {
-    name: "Stephen Edwin King",
+    name: "Stephen King",
     numberOfBooks: 11,
   },
   {
-    name: "Ernest Miller Hemingway",
+    name: "Ernest Hemingway",
     numberOfBooks: 2,
   },
   {
@@ -19,7 +19,7 @@ const data = [
     numberOfBooks: 10,
   },
   {
-    name: "Gillian Schieber Flynn",
+    name: "Gillian Flynn",
     numberOfBooks: 8,
   },
   {
@@ -27,7 +27,7 @@ const data = [
     numberOfBooks: 7,
   },
   {
-    name: "George Raymond Richard Martin",
+    name: "George R.R. Martin",
     numberOfBooks: 4,
   },
 ];
@@ -46,6 +46,7 @@ export default function FavouriteAuthorsBarChart() {
   return (
     <div>
       <p>Click to view number of books by author </p>
+      <br/>
       <BarChart width={300} height={100} data={data}>
         <Bar dataKey="numberOfBooks" onClick={handleClick}>
           {data.map((entry, index) => (
@@ -57,6 +58,7 @@ export default function FavouriteAuthorsBarChart() {
           ))}
         </Bar>
       </BarChart>
+      <br/>
       <p className="content">{`You have read ${activeItem.numberOfBooks} books written by ${activeItem.name} `}</p>
     </div>
   );
