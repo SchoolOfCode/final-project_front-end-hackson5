@@ -6,30 +6,34 @@ import styles from "../styles/SurpriseMe.module.css";
 
 function surpriseme() {
   const { user } = useUser();
-  const [userInput, setuserInput] = useState();
+  const [userInput, setuserInput] = useState("");
   const [bookID, setBookID] = useState();
   const [bookData, setBookData] = useState();
   const [readingListData, setReadingListData] = useState();
   const [listSelectionId, setListSelectionId] = useState();
   const [warning, setWarning] = useState(false);
+  const [listSelectWarning, setListSelectWarning] = useState(false);
 
   const handleChange = (e) => {
     setuserInput(e.target.value);
   };
 
   const handleClick = async () => {
+    if (userInput.length <= 2 || /\W|_|\d/g.test(userInput)) {
+      setWarning(true);
+      return;
+    }
+    setWarning(false);
     const randomNumber = Math.floor(Math.random() * 100);
     const response = await fetch(
       `https://openlibrary.org/search.json?subject=${userInput}`
     );
     const data = await response.json();
-    setBookID(data.docs[randomNumber].key);
-    if (userInput.length < 3) {
+    if (data?.numFound === 0) {
       setWarning(true);
-      console.log("this is wrong");
-    } else {
-      setWarning(false);
+      return;
     }
+    setBookID(data.docs[randomNumber].key);
   };
 
   useEffect(() => {
@@ -62,16 +66,21 @@ function surpriseme() {
   };
 
   const addBookToList = async () => {
-    const response = await fetch(
-      `https://hackson5.herokuapp.com/readinglist/${user.sub.substring(
-        user.sub.indexOf("|") + 1
-      )}/${listSelectionId}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ books: bookID.split("/works/")[1] }),
-      }
-    );
+    if (listSelectionId) {
+      setListSelectWarning(false);
+      const response = await fetch(
+        `https://hackson5.herokuapp.com/readinglist/${user.sub.substring(
+          user.sub.indexOf("|") + 1
+        )}/${listSelectionId}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ books: bookID.split("/works/")[1] }),
+        }
+      );
+      return;
+    }
+    setListSelectWarning(true);
   };
 
   return (
@@ -79,7 +88,7 @@ function surpriseme() {
       <h1>Surprise Me</h1>
 
       <p>Search for a random book on the given topic</p>
-      {warning && <p>Your search needs to be more than three characters!</p>}
+
       <input
         className={styles.search}
         placeholder="Search Topic..."
@@ -87,9 +96,13 @@ function surpriseme() {
           handleChange(e);
         }}
         type="text"
-        required
-        minlength={3}
       ></input>
+      {warning && (
+        <p className={styles.surpriseMeErrorMsg}>
+          Your search needs to be more than three characters and contains no
+          numbers or special characters!
+        </p>
+      )}
       <Button
         onClick={handleClick}
         color="secondary"
@@ -154,6 +167,11 @@ function surpriseme() {
                   </Button>
                 )}
               </div>
+              {listSelectWarning && (
+                <div style={{ color: "rgb(251, 72, 72)", textAlign: "center" }}>
+                  Please select a list.
+                </div>
+              )}
             </div>
           </div>
         </div>
