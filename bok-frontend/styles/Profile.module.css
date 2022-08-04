@@ -8,7 +8,7 @@
 
 .UserContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     padding-left: 10px;
     padding-bottom: 10px;
@@ -46,4 +46,21 @@
     .UserContainer { 
         width: 40%;
     }
+}
+
+.StarRating {
+    display: flex;
+    flex-direction: column;
+    padding-right: 40px;
+}
+
+.TotalBooks {
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.BookNumberRead {
+    font-size: x-large;
+    font-weight: bold;
 }

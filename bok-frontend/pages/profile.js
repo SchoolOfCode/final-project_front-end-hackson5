@@ -26,13 +26,23 @@ export default function user() {
         <div className={styles.StatsContainer}>
         <div>
           <h2>Your Statistics</h2>
+          <br />
           <div className={styles.StarAndTotBooks}>
-          <Typography component="legend">Average Star Rating</Typography><br/>
+          <div className={styles.StarRating}>
+            <div>
+          <Typography component="legend">Average Star Rating</Typography>
+          </div>
+          <div>
           <Rating readOnly name="simple-controlled" value={4.5} />
-          <div>Total Books on Lists:</div><br/>
-          <h1>5</h1>
+          </div>
+          </div>
+          <div className={styles.TotalBooks}>
+          <div>Total Books on Lists:</div>
+          <div className={styles.BookNumberRead}>5</div>
+          </div>
           </div>
         </div>
+        <br />
         <div>
           <h3>Favourite Subject</h3>
           <FavouriteSubjectPieChart />
@@ -41,6 +51,7 @@ export default function user() {
           <h3>Favourite Authors</h3>
           <FavouriteAuthorsBarChart />
         </div>
+        <br/>
         <div>
           <h3>Monthly Books Read</h3>
           <MonthlyBooksReadLineChart />
