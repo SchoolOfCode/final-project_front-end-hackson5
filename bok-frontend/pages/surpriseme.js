@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 import styles from "../styles/SurpriseMe.module.css";
 import CircularProgress from "@mui/material/CircularProgress";
 
-function surpriseme( { data } ) {
+function surpriseme({ data }) {
   const { user } = useUser();
   const [userInput, setuserInput] = useState("");
   const [bookID, setBookID] = useState();
@@ -14,7 +14,7 @@ function surpriseme( { data } ) {
   const [listSelectionId, setListSelectionId] = useState();
   const [warning, setWarning] = useState(false);
   const [listSelectWarning, setListSelectWarning] = useState(false);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setuserInput(e.target.value);
@@ -44,10 +44,10 @@ function surpriseme( { data } ) {
       const response = await fetch(`https://openlibrary.org${bookID}.json`);
       const data = await response.json();
       setBookData(data);
-      setLoading(false)
+      setLoading(false);
     };
     if (bookID) {
-      fetchBookData()
+      fetchBookData();
     }
   }, [bookID]);
 
@@ -87,12 +87,10 @@ function surpriseme( { data } ) {
     setListSelectWarning(true);
   };
 
-    return (
-      <div className={styles.SurpriseMeContainer}>
-        <h1>Surprise Me</h1>
-  
-        <p>Search for a random book on the given topic</p>
-        {warning && <p>Your search needs to be more than three characters!</p>}
+  return (
+    <div className={styles.SurpriseMeContainer}>
+      <h1>Surprise Me</h1>
+
       <p>Search for a random book on the given topic</p>
 
       <input
@@ -125,7 +123,7 @@ function surpriseme( { data } ) {
       >
         Find New Book
       </Button>
-      {loading && <CircularProgress/>}
+      {loading && <CircularProgress />}
       {bookData && (
         <div className={styles.contentContainer}>
           <div className={styles.descriptionContainer}>
@@ -140,6 +138,7 @@ function surpriseme( { data } ) {
                 alt={bookData?.title}
               />
             )}
+
             <div className={styles.surpriseContentContainer}>
               <div className={styles.descriptionTitle}>{bookData?.title}</div>
               <div style={{ margin: 5 }}>
@@ -180,9 +179,10 @@ function surpriseme( { data } ) {
               )}
             </div>
           </div>
-        )}
-      </div>
-    );
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default withPageAuthRequired(surpriseme);
