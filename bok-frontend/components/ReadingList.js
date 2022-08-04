@@ -1,17 +1,14 @@
 import styles from "../styles/BookItem.module.css";
-import {useState} from "react"
+import { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";
 
-
 //Fetches all user's reading list and displays on Home and myLists pages.
 
-function ReadingList({ readingList, setReadingList }) {
+function ReadingList({ readingList, setReadingList, bookCovers }) {
   const { user } = useUser();
   const router = useRouter();
-  
-
 
   //Navigates to the individual list page based on user list selection
   const handleClick = (route) => {
@@ -34,67 +31,56 @@ function ReadingList({ readingList, setReadingList }) {
     setReadingList(newListArray);
   };
 
-
-
-
-  
-
-
-//provide field for input when edit button clicked ✔️
-  //input field to display on button click✔️
-//store input given✔️
-//send input given with the patch request
-
-
-
-  return readingList?.map((arr) => {
+  return readingList?.map((arr, index) => {
+    console.log(bookCovers[index]);
     return (
       <div key={arr.reading_list_id} className={styles.bookContainer}>
         <div className={styles.infoContainer}>
           <p>{arr.reading_list_name}</p>
-         
-        
+          <img
+            src={`https://covers.openlibrary.org/b/id/${bookCovers[index]}-L.jpg`}
+            width={100}
+          />
 
-           
           <Button
-              onClick={() => {
+            onClick={() => {
               handleClick(
                 `${user.sub.substring(user.sub.indexOf("|") + 1)}/${
-                  arr.reading_list_id}/${arr.reading_list_name}
+                  arr.reading_list_id
+                }/${arr.reading_list_name}
                 `
               );
             }}
-              color="secondary"
-              variant="contained"
-              size="large"
-              style={{ textTransform: "none" }}
-              sx={{
-                m: 1,
-                borderRadius: 3,
-                fontSize: 14,
-                fontFamily: "Arial",
-                fontWeight: 100,
-              }}
-            >
-              View List
-            </Button>
-            <Button
-              onClick={() => deleteFromList(arr.reading_list_id)}
-              color="secondary"
-              variant="contained"
-              size="large"
-              style={{ textTransform: "none" }}
-              sx={{
-                m: 1,
-                borderRadius: 3,
-                fontSize: 14,
-                fontFamily: "Arial",
-                fontWeight: 100,
-              }}
-            >
-              Delete List
-            </Button>
-            
+            color="secondary"
+            variant="contained"
+            size="large"
+            style={{ textTransform: "none" }}
+            sx={{
+              m: 1,
+              borderRadius: 3,
+              fontSize: 14,
+              fontFamily: "Arial",
+              fontWeight: 100,
+            }}
+          >
+            View List
+          </Button>
+          <Button
+            onClick={() => deleteFromList(arr.reading_list_id)}
+            color="secondary"
+            variant="contained"
+            size="large"
+            style={{ textTransform: "none" }}
+            sx={{
+              m: 1,
+              borderRadius: 3,
+              fontSize: 14,
+              fontFamily: "Arial",
+              fontWeight: 100,
+            }}
+          >
+            Delete List
+          </Button>
         </div>
       </div>
     );
