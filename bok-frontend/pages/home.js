@@ -11,6 +11,7 @@ import Image from "next/image"
 
 function Home() {
   const [readingList, setReadingList] = useState();
+  const [bookCoverID, setBookCoverID] = useState([]);
   const { user } = useUser();
 
   //Fetchs all reading lists for a specific user and passes the first two to readingList component
@@ -27,6 +28,23 @@ function Home() {
     };
     fetchData();
   }, [user]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let bookID = [];
+      readingList?.map(async (readinglistID) => {
+        const res = await fetch(
+          `https://hackson5.herokuapp.com/readinglist/books/${user.sub.substring(
+            user.sub.indexOf("|") + 1
+          )}/${readinglistID.reading_list_id}`
+        );
+        const data = await res.json();
+        bookID = [...bookID, data.payload[0].books];
+        setBookCoverID(bookID);
+      });
+    };
+    fetchData();
+  }, [readingList]);
 
   return (
     <div className={styles.container}>
@@ -45,7 +63,7 @@ function Home() {
           <h3>Favourite Authors</h3>
           <FavouriteAuthorsBarChart />
         </div>
-      <ReadingList readingList={readingList} />
+      <ReadingList readingList={readingList} bookCovers={bookCoverID}/>
     </div>
   );
 }
