@@ -4,6 +4,8 @@ import ReadingList from "../components/ReadingList";
 import styles from "../styles/Home.module.css";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { useUser } from "@auth0/nextjs-auth0";
+import FavouriteAuthorsBarChart from "../components/FavouriteAuthorsBarChart"
+import Image from "next/image"
 
 //the home page which is displayed after successful login.
 
@@ -47,10 +49,21 @@ function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>BOK</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ReadingList readingList={readingList} bookCovers={bookCoverID} />
+      <Image
+          alt="Welcome to BOK"
+          src="/Welcome.png"
+          width="400"
+          height="300"
+        ></Image>
+     
+      <div>
+          <h3>Favourite Authors</h3>
+          <FavouriteAuthorsBarChart />
+        </div>
+      <ReadingList readingList={readingList} bookCovers={bookCoverID}/>
     </div>
   );
 }

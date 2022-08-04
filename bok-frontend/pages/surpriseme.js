@@ -3,8 +3,9 @@ import { withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import { ReadingListDropDown } from "../components/ReadingListDropDown";
 import { Button } from "@mui/material";
 import styles from "../styles/SurpriseMe.module.css";
+import CircularProgress from "@mui/material/CircularProgress";
 
-function surpriseme() {
+function surpriseme( { data } ) {
   const { user } = useUser();
   const [userInput, setuserInput] = useState("");
   const [bookID, setBookID] = useState();
@@ -13,6 +14,7 @@ function surpriseme() {
   const [listSelectionId, setListSelectionId] = useState();
   const [warning, setWarning] = useState(false);
   const [listSelectWarning, setListSelectWarning] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
     setuserInput(e.target.value);
@@ -25,6 +27,7 @@ function surpriseme() {
     }
     setWarning(false);
     const randomNumber = Math.floor(Math.random() * 100);
+    setLoading(true);
     const response = await fetch(
       `https://openlibrary.org/search.json?subject=${userInput}`
     );
@@ -41,9 +44,10 @@ function surpriseme() {
       const response = await fetch(`https://openlibrary.org${bookID}.json`);
       const data = await response.json();
       setBookData(data);
+      setLoading(false)
     };
     if (bookID) {
-      fetchBookData();
+      fetchBookData()
     }
   }, [bookID]);
 
@@ -83,10 +87,12 @@ function surpriseme() {
     setListSelectWarning(true);
   };
 
-  return (
-    <div className={styles.SurpriseMeContainer}>
-      <h1>Surprise Me</h1>
-
+    return (
+      <div className={styles.SurpriseMeContainer}>
+        <h1>Surprise Me</h1>
+  
+        <p>Search for a random book on the given topic</p>
+        {warning && <p>Your search needs to be more than three characters!</p>}
       <p>Search for a random book on the given topic</p>
 
       <input
@@ -119,7 +125,7 @@ function surpriseme() {
       >
         Find New Book
       </Button>
-
+      {loading && <CircularProgress/>}
       {bookData && (
         <div className={styles.contentContainer}>
           <div className={styles.descriptionContainer}>
@@ -174,10 +180,9 @@ function surpriseme() {
               )}
             </div>
           </div>
-        </div>
-      )}
-    </div>
-  );
+        )}
+      </div>
+    );
 }
 
 export default withPageAuthRequired(surpriseme);
