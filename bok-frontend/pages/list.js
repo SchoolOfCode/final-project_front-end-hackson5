@@ -44,7 +44,7 @@ function individuallist() {
   //then fires a GET request to get the updated data and set the new list name
   //to the state that displays the current list name
   //The initial state of uniqueListId  sets the list name based on the url.
-  // router.push is to reset the url to the new list name provided. This is 
+  // router.push is to reset the url to the new list name provided. This is
   //for when the page is refreshed.
   const editListName = async () => {
     await fetch(`https://hackson5.herokuapp.com/readinglist/${urlQuery[1]}`, {
