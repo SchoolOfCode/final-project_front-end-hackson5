@@ -20,8 +20,8 @@ export default function user() {
     user && (
       <div className={styles.ProfileContainer}>
         <div className={styles.UserContainer}>
-          <img src={user?.picture} alt={user.name} className={styles.UserAvatar}/>
-          <div>{user.name}</div>
+          <img className={styles.UserAvatar} src={user?.picture} alt={user.name} />
+          <div className={styles.UserName}>{user.name}</div>
         </div>
         <div className={styles.StatsContainer}>
         <div>

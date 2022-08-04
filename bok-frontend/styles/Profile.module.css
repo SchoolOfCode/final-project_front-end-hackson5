@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     background-color: #FAF9F6;
+    padding-top: 10px;
 }
 
 .UserContainer {
@@ -21,8 +22,12 @@
     border-radius: 50%;
     margin: 10px;
     width: 80px;
-    height: 80px
+    height: 80px;
+}
 
+.UserName {
+    font-size: x-large;
+    font-weight: bold;
 }
 
 .StatsContainer {

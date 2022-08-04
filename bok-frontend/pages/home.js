@@ -52,16 +52,17 @@ function Home() {
         <title>BOK</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className={styles.WelcomeImg}>
       <Image
           alt="Welcome to BOK"
           src="/Welcome.png"
           width="400"
           height="300"
         ></Image>
-     
-      <div>
+        </div>     
+        <div className={styles.FavAutChart}>
           <h3>Favourite Authors</h3>
-          <FavouriteAuthorsBarChart />
+          <div className={styles.FavAutBarChart}><FavouriteAuthorsBarChart /></div>
         </div>
       <ReadingList readingList={readingList} bookCovers={bookCoverID}/>
     </div>
