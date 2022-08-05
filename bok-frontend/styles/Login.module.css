@@ -15,3 +15,22 @@
     background-color: #FAF9F6;
 }
 
+.loginButtonsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 475px;
+    height: 20%;
+    border-top: 1px solid rgb(00, 00, 00, 0.3);
+    border-bottom: 1px solid rgb(00, 00, 00, 0.3);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+@media (max-width: 45rem) {
+    .loginButtonsContainer {
+        width: 80%
+    }
+}
+

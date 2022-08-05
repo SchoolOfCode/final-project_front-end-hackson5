@@ -3,6 +3,7 @@ import ReadingList from "../components/ReadingList";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { useUser } from "@auth0/nextjs-auth0";
 import AddReadingList from "../components/AddReadingList";
+import styles from "../styles/mylists.module.css";
 
 function AllReadingLists() {
   const { user } = useUser();
@@ -23,9 +24,9 @@ function AllReadingLists() {
   }, [user]);
 
   return (
-    <div>
-      <AddReadingList />
-      <ReadingList readingList={readingList} />
+    <div className={styles.mylistcontainer}>
+      <AddReadingList setReadingList={setReadingList} />
+      <ReadingList readingList={readingList} setReadingList={setReadingList} />
     </div>
   );
 }

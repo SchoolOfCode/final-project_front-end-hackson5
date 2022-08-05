@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import styles from "../styles/BookItem.module.css";
+import styles from "../styles/DisplayBook.module.css";
 import { Button } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 
@@ -34,16 +34,33 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
         headers: { "Content-Type": "application/json" },
       }
     );
-  };
 
+    const deletedBookIndex = bookData.findIndex((books) => {
+      return books.key === `/works/${bookID}`;
+    });
+
+    const newBookArray = [
+      ...bookData.slice(0, deletedBookIndex),
+      ...bookData.slice(deletedBookIndex + 1),
+    ];
+    setBookData(newBookArray);
+
+    //bookData[0].key.includes(`/works/${bookID}`)
+    //match the passed bookid to the bookData state key.
+    //remove matched element from bookData
+    //spread new bookdata into new array
+    //setBookData to the new spread array
+  };
+  console.log(bookData)
   if (bookData.length === 0) {
     return <CircularProgress />;
   } else {
     return bookData?.map((arr, index) => {
       return (
         <div key={index} className={styles.bookContainer}>
-          <div>
-            <img
+        <div className={styles.infoContainer}>
+          <div className={styles.bookCover}>
+            <img className={styles.searchImage}
               src={
                 typeof arr.covers === "object"
                   ? `https://covers.openlibrary.org/b/id/${arr.covers[0]}-L.jpg`
@@ -52,15 +69,8 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
               width={100}
             />
           </div>
-          <div className={styles.infoContainer}>
+          <div className={styles.titleButtonContainer}>
             <p>{arr.title}</p>
-            {arr.description && (
-              <p>
-                {typeof bookData?.description === "object"
-                  ? bookData?.description.value
-                  : bookData?.description}
-              </p>
-            )}
             <Button
               onClick={() => {
                 deleteBookFromList(arr.key.split("/works/")[1]);
@@ -77,9 +87,10 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
                 fontWeight: 100,
               }}
             >
-              Remove Book From List
+              Remove Book
             </Button>
           </div>
+        </div>
         </div>
       );
     });

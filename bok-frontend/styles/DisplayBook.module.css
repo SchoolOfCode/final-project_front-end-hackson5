@@ -9,9 +9,21 @@
 .searchImage {
     border: 1px solid gray;
     border-radius: 5px;
-    margin: 10px 40px 10px 0px;
+    margin: 10px 20px 10px 10px;
     box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
 }
+
+.titleButtonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    width: 50%;
+  
+}
+
 
 .infoContainer {
   display: flex;
@@ -26,33 +38,15 @@
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.popupContent {
-  margin: auto;
-  background: rgb(152, 119, 119);
-  width: 100%;
-  padding: 5px;
-}
-
-.popupArrow {
-  color: rgb(169, 72, 72);
-}
-
 .contentContainer {
   width: 50%;
   margin-bottom: 10px;
 }
 
-[role='tooltip'].popupContent {
-  width: 500px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
-}
+.bookCover {
+    margin-top: 20px;
+    margin-bottom: 15px;
 
-.popupOverlay {
-  background: rgba(0, 0, 0, 0.5);
-}
-
-[data-popup='tooltip'].popupOverlay {
-  background: transparent;
 }
 
 @media (max-width: 40rem) {
@@ -60,9 +54,3 @@
     width: 100%;
   }
 }
-
-/* .authorAndButton {
-  display: flex;
-
-  justify-content: space-evenly;
-} */

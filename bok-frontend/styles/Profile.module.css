@@ -1,0 +1,76 @@
+
+.ProfileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FAF9F6;
+    padding-top: 10px;
+
+}
+
+.UserContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(00, 00, 00, 0.3);
+    width: 90%;
+
+}
+
+.UserAvatar {
+    border-radius: 50%;
+    margin: 10px;
+    width: 80px;
+    height: 80px;
+}
+
+.UserName {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.StatsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #EDEEC9;
+    margin-top: 25px;
+    border-radius: 5px;
+    text-align: center;
+    width: 90%;
+}
+
+.StarAndTotBooks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+@media (min-width: 45rem) {
+    .UserContainer { 
+        width: 40%;
+    }
+    .StatsContainer {
+        width: 40%;
+    }
+}
+
+.StarRating {
+    display: flex;
+    flex-direction: column;
+    padding-right: 40px;
+}
+
+.TotalBooks {
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.BookNumberRead {
+    font-size: x-large;
+    font-weight: bold;
+}

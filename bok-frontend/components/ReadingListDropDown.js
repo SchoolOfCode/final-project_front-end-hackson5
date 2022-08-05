@@ -1,15 +1,17 @@
 //On the BookSearchDisplay, the user can select a reading list and add a book to it
+import styles from "../styles/dropdown.module.css";
 
 export function ReadingListDropDown({ readingListData, handleChange }) {
   return (
     readingListData?.length > 0 && (
       <select
+        className={styles.dropdown}
         onChange={(e) => {
           handleChange(e);
         }}
       >
         <option hidden value="">
-          Please Select a list
+          Select a list
         </option>
         {readingListData?.map((arr) => {
           return (

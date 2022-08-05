@@ -1,26 +1,27 @@
 .bookContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 85%;
-}
-
-.searchImage {
-    border: 1px solid gray;
-    border-radius: 5px;
-    margin: 10px 40px 10px 0px;
-    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
-}
-
-.infoContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 85%;
+}
+
+.searchImage {
+  border: 1px solid gray;
   border-radius: 5px;
-  background-color: #EDEEC9;
+  margin: 10px 40px 10px 0px;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  max-width: 450px;
+  border-radius: 5px;
+  background-color: #edeec9;
   margin: 10px;
   padding: 10px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
@@ -42,7 +43,7 @@
   margin-bottom: 10px;
 }
 
-[role='tooltip'].popupContent {
+[role="tooltip"].popupContent {
   width: 500px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
 }
@@ -51,7 +52,7 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-[data-popup='tooltip'].popupOverlay {
+[data-popup="tooltip"].popupOverlay {
   background: transparent;
 }
 
@@ -60,9 +61,3 @@
     width: 100%;
   }
 }
-
-/* .authorAndButton {
-  display: flex;
-
-  justify-content: space-evenly;
-} */

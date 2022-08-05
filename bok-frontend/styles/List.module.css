@@ -1,0 +1,30 @@
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FAF9F6;
+}
+
+.displayBook {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+
+}
+
+.listNameContainer {
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: -15px;
+
+}
+
+.search {
+    border: 1px solid #d3d5af;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #EDEEC9;
+    margin-bottom: 5px;
+}
