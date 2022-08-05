@@ -38,10 +38,18 @@ function AddReadingList({ setReadingList }) {
   };
 
   return (
-    <div>
-      
+    <div 
+    style={{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: 'center',
+    flexDirection: "column"  
+    }}
+      >
+      <div>
       <input
         className={styles.search}
+
         value={userListNameInput}
         onChange={(e) => setUserListNameInput(e.target.value)}
         placeholder="Enter a List Name..."
@@ -62,6 +70,7 @@ function AddReadingList({ setReadingList }) {
       >
         Add List
       </Button>
+      </div>
       {warning && (
         <p style={{ color: "rgb(251, 72, 72)", textAlign: "center" }}>
           Your list name needs to be more than three characters and contains no
