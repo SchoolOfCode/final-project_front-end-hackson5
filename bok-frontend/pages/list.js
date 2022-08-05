@@ -3,6 +3,7 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { useRouter } from "next/router";
 import { Button } from "@mui/material";
 import { DisplayBookFromUserList } from "../components/DisplayBookFromUserList";
+import styles from "../styles/List.module.css";
 
 //A users individual list to see all books
 
@@ -47,6 +48,7 @@ function individuallist() {
   // router.push is to reset the url to the new list name provided. This is
   //for when the page is refreshed.
   const editListName = async () => {
+    setEditInputHidden(!editInputHidden)
     await fetch(`https://hackson5.herokuapp.com/readinglist/${urlQuery[1]}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -68,35 +70,60 @@ function individuallist() {
   };
 
   return (
-    <div>
-      <p>{uniqueListId}</p>
-      <Button
-        onClick={() => confirmEdit()}
-        color="secondary"
-        variant="contained"
-        size="large"
-        style={{ textTransform: "none" }}
-        sx={{
-          m: 1,
-          borderRadius: 3,
-          fontSize: 14,
-          fontFamily: "Arial",
-          fontWeight: 100,
-        }}
-      >
-        Edit List Name
-      </Button>
-      <input
-        type="text"
-        hidden={editInputHidden}
-        onChange={(e) => setNewUserListName(e.target.value)}
-      ></input>
-
-      <button onClick={() => editListName()} hidden={editInputHidden}>
-        EDIT
-      </button>
-
-      <DisplayBookFromUserList bookList={bookIDList} readingListID={id} />
+    <div className={styles.listContainer}>
+      <div className={styles.listNameContainer}>
+        <p>{uniqueListId}</p>
+      </div>
+      {editInputHidden && (
+        <Button
+          onClick={() => confirmEdit()}
+          color="secondary"
+          variant="contained"
+          size="large"
+          style={{ textTransform: "none" }}
+          sx={{
+            m: 1,
+            borderRadius: 3,
+            fontSize: 14,
+            fontFamily: "Arial",
+            fontWeight: 100,
+          }}
+        >
+          Edit Name
+        </Button>
+      )}
+      {!editInputHidden && (
+        <div>
+          <input
+            className={styles.search}
+            placeholder="Enter new name..."
+            type="text"
+            hidden={editInputHidden}
+            onChange={(e) => setNewUserListName(e.target.value)}
+          ></input>
+          <Button
+            onClick={() => editListName()}
+            color="secondary"
+            variant="contained"
+            size="large"
+            style={{ textTransform: "none" }}
+            sx={{
+              m: 1,
+              borderRadius: 3,
+              fontSize: 14,
+              fontFamily: "Arial",
+              fontWeight: 100,
+            }}
+          >
+            Update
+          </Button>
+        </div>
+      )}
+      <DisplayBookFromUserList
+        className={styles.displayBook}
+        bookList={bookIDList}
+        readingListID={id}
+      />
     </div>
   );
 }
