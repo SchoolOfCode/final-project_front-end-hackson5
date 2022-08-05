@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@mui/material";
 import { useUser } from "@auth0/nextjs-auth0";
+import styles from "../styles/SurpriseMe.module.css";
 
 //Sends a post request to the database to add a new reading list for a user
 
@@ -38,6 +39,13 @@ function AddReadingList({ setReadingList }) {
 
   return (
     <div>
+      
+      <input
+        className={styles.search}
+        value={userListNameInput}
+        onChange={(e) => setUserListNameInput(e.target.value)}
+        placeholder="Enter a List Name..."
+      />
       <Button
         onClick={() => handleClick()}
         color="secondary"
@@ -54,10 +62,6 @@ function AddReadingList({ setReadingList }) {
       >
         Add List
       </Button>
-      <input
-        value={userListNameInput}
-        onChange={(e) => setUserListNameInput(e.target.value)}
-      />
       {warning && (
         <p style={{ color: "rgb(251, 72, 72)", textAlign: "center" }}>
           Your list name needs to be more than three characters and contains no

@@ -63,7 +63,7 @@ export default function MonthlyBooksReadLineChart() {
   return (
     <div>
       <LineChart
-        width={500}
+        width={350}
         height={200}
         data={data}
         syncId="anyId"

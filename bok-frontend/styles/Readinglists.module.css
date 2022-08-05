@@ -19,6 +19,7 @@
   justify-content: center;
   align-items: center;
   width: 75%;
+  max-width: 450px;
   border-radius: 5px;
   background-color: #edeec9;
   margin: 10px;

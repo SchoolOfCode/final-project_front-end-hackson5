@@ -72,6 +72,7 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
             </div>
             <div className={styles.contentContainer}>
               <p>{arr.title}</p>
+              <div className={styles.authorAndButton}>
               <p>{!arr.author_name ? "Author Unknown" : arr.author_name[0]}</p>
               <Button
                 onClick={() => bookInfoDisplay(arr.key)}
@@ -88,6 +89,7 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
               >
                 More Info
               </Button>
+              </div>
               <div>
                 <ReadingListDropDown
                   readingListData={allReadingLists}

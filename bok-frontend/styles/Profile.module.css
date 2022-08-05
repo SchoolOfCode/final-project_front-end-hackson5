@@ -5,6 +5,7 @@
     align-items: center;
     background-color: #FAF9F6;
     padding-top: 10px;
+
 }
 
 .UserContainer {
@@ -38,6 +39,7 @@
     margin-top: 25px;
     border-radius: 5px;
     text-align: center;
+    width: 90%;
 }
 
 .StarAndTotBooks {
@@ -49,6 +51,9 @@
 
 @media (min-width: 45rem) {
     .UserContainer { 
+        width: 40%;
+    }
+    .StatsContainer {
         width: 40%;
     }
 }
