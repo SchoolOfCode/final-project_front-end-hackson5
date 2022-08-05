@@ -6,6 +6,9 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { useUser } from "@auth0/nextjs-auth0";
 import FavouriteAuthorsBarChart from "../components/FavouriteAuthorsBarChart";
 import Image from "next/image";
+import Link from "next/link";
+
+import { Button } from "@mui/material";
 
 //the home page which is displayed after successful login.
 
@@ -30,6 +33,13 @@ function Home() {
   }, [user]);
 
   return (
+    //add a button to stats component
+    //button will link to profile page
+
+
+
+
+
     <div className={styles.container}>
       <Head>
         <title>BOK</title>
@@ -46,6 +56,23 @@ function Home() {
         <div className={styles.FavAutChart}>
           <h3>Favourite Authors</h3>
           <div className={styles.FavAutBarChart}><FavouriteAuthorsBarChart /></div>
+          <Link href="/profile">
+          <Button
+          variant="contained"
+          color="secondary"       
+         size="large"
+         style={{ textTransform: "none" }}
+         sx={{
+          m: 1,
+          borderRadius: 3,
+          fontSize: 14,
+          fontFamily: "Arial",
+          fontWeight: 100,
+         }}
+          >Full Statistics
+          </Button>
+          </Link>
+          
         </div>
       <ReadingList readingList={readingList} setReadingList={setReadingList} />
 
