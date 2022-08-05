@@ -74,8 +74,27 @@ function Home() {
           </Link>
           
         </div>
+        <h3>My Reading Lists</h3>
+        <Link href="/myLists">
+          <Button
+          variant="contained"
+          color="secondary"       
+         size="large"
+         style={{ textTransform: "none" }}
+         sx={{
+          m: 1,
+          borderRadius: 3,
+          fontSize: 14,
+          fontFamily: "Arial",
+          fontWeight: 100,
+         }}
+          >View all Lists
+          </Button>
+          </Link>
+          
+        <div className={styles.listContainer}>
       <ReadingList readingList={readingList} setReadingList={setReadingList} />
-
+        </div>  
     </div>
   );
 }

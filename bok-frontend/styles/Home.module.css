@@ -7,6 +7,13 @@
   padding-top: 25px;
 }
 
+.listContainer {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+  
+}
+
 .WelcomeImg {
   border-bottom: 1px solid rgb(00, 00, 00, 0.3);
   width: 90%;
@@ -16,6 +23,8 @@
 .FavAutChart {
   border-bottom: 1px solid rgb(00, 00, 00, 0.3);
   width: 90%;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .FavAutBarChart {
