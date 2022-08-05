@@ -3,6 +3,7 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { useRouter } from "next/router";
 import { Button } from "@mui/material";
 import { DisplayBookFromUserList } from "../components/DisplayBookFromUserList";
+import styles from "../styles/List.module.css";
 
 //A users individual list to see all books
 
@@ -68,8 +69,10 @@ function individuallist() {
   };
 
   return (
-    <div>
+    <div className={styles.listContainer}>
+      <div className={styles.listNameContainer}>
       <p>{uniqueListId}</p>
+      </div>
       <Button
         onClick={() => confirmEdit()}
         color="secondary"
@@ -84,7 +87,7 @@ function individuallist() {
           fontWeight: 100,
         }}
       >
-        Edit List Name
+        Edit Name
       </Button>
       <input
         type="text"
@@ -93,10 +96,10 @@ function individuallist() {
       ></input>
 
       <button onClick={() => editListName()} hidden={editInputHidden}>
-        EDIT
+        Edit
       </button>
 
-      <DisplayBookFromUserList bookList={bookIDList} readingListID={id} />
+      <DisplayBookFromUserList className={styles.displayBook} bookList={bookIDList} readingListID={id} />
     </div>
   );
 }
