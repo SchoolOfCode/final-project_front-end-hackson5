@@ -44,9 +44,15 @@ export default function FavouriteAuthorsBarChart() {
   );
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       <p>Click to view number of books by author </p>
-      <br/>
+      <br />
       <BarChart width={300} height={100} data={data}>
         <Bar dataKey="numberOfBooks" onClick={handleClick}>
           {data.map((entry, index) => (
@@ -58,7 +64,7 @@ export default function FavouriteAuthorsBarChart() {
           ))}
         </Bar>
       </BarChart>
-      <br/>
+      <br />
       <p className="content">{`You have read ${activeItem.numberOfBooks} books written by ${activeItem.name} `}</p>
     </div>
   );

@@ -36,65 +36,67 @@ function Home() {
     //add a button to stats component
     //button will link to profile page
 
-
-
-
-
     <div className={styles.container}>
       <Head>
         <title>BOK</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.WelcomeImg}>
-      <Image
+        <Image
           alt="Welcome to BOK"
           src="/Welcome.png"
           width="400"
           height="300"
         ></Image>
-        </div>     
-        <div className={styles.FavAutChart}>
-          <h3>Favourite Authors</h3>
-          <div className={styles.FavAutBarChart}><FavouriteAuthorsBarChart /></div>
-          <Link href="/profile">
-          <Button
-          variant="contained"
-          color="secondary"       
-         size="large"
-         style={{ textTransform: "none" }}
-         sx={{
-          m: 1,
-          borderRadius: 3,
-          fontSize: 14,
-          fontFamily: "Arial",
-          fontWeight: 100,
-         }}
-          >Full Statistics
-          </Button>
-          </Link>
-          
+      </div>
+      <div className={styles.FavAutChart}>
+        <h3>Favourite Authors</h3>
+        <div className={styles.FavAutBarChart}>
+          <FavouriteAuthorsBarChart />
         </div>
-        <h3>My Reading Lists</h3>
-        <Link href="/myLists">
+        <Link href="/profile">
           <Button
-          variant="contained"
-          color="secondary"       
-         size="large"
-         style={{ textTransform: "none" }}
-         sx={{
-          m: 1,
-          borderRadius: 3,
-          fontSize: 14,
-          fontFamily: "Arial",
-          fontWeight: 100,
-         }}
-          >View all Lists
+            variant="contained"
+            color="secondary"
+            size="large"
+            style={{ textTransform: "none" }}
+            sx={{
+              m: 1,
+              borderRadius: 3,
+              fontSize: 14,
+              fontFamily: "Arial",
+              fontWeight: 100,
+            }}
+          >
+            My Profile
           </Button>
-          </Link>
-          
-        <div className={styles.listContainer}>
-      <ReadingList readingList={readingList} setReadingList={setReadingList} />
-        </div>  
+        </Link>
+      </div>
+      <h3>My Reading Lists</h3>
+      <Link href="/myLists">
+        <Button
+          variant="contained"
+          color="secondary"
+          size="large"
+          style={{ textTransform: "none" }}
+          sx={{
+            m: 1,
+            borderRadius: 3,
+            fontSize: 14,
+            fontFamily: "Arial",
+            fontWeight: 100,
+          }}
+        >
+          View all Lists
+        </Button>
+      </Link>
+
+      <div className={styles.listContainer}>
+        <ReadingList
+          readingList={readingList}
+          setReadingList={setReadingList}
+        />
+      </div>
     </div>
   );
 }
