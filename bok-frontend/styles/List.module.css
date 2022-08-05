@@ -20,3 +20,11 @@
     margin-bottom: -15px;
 
 }
+
+.search {
+    border: 1px solid #d3d5af;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #EDEEC9;
+    margin-bottom: 5px;
+}
