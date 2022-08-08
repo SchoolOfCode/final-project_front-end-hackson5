@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/DisplayBook.module.css";
-import { Alert, Button } from "@mui/material";
+import { Alert, Button, Snackbar } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 export function DisplayBookFromUserList({ bookList, readingListID }) {
   const [bookData, setBookData] = useState([]);
   const [value, setValue] = useState(0);
+  const [open, setOpen] = useState(false);
 
   //Fetches request to the book api which returns data on each individual book within the user's reading list
   useEffect(() => {
@@ -52,7 +53,8 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
     setBookData(newBookArray);
   };
 
-  const patchRating = async (bookid) => {
+  const patchRating = async (bookid, newValue) => {
+    setOpen(true);
     const currentReadingListID = readingListID.split("/")[1];
     await fetch(
       `https://hackson5.herokuapp.com/readinglist/${currentReadingListID}/${bookid}`,
@@ -60,13 +62,19 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          rating: value,
+          rating: newValue,
         }),
       }
     );
   };
 
-  console.log(bookData);
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
+
   if (bookData.length === 0) {
     return <Alert severity="info">Your list is empty.</Alert>;
   } else {
@@ -92,26 +100,20 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
                     (bookData[index].rating = newValue),
                       setBookData([...bookData]);
                     setValue(newValue);
+                    patchRating(arr.key.split("/works/")[1], newValue);
                   }}
                 />
-                <Button
-                  onClick={() => {
-                    patchRating(arr.key.split("/works/")[1]);
-                  }}
-                  color="secondary"
-                  variant="contained"
-                  size="large"
-                  style={{ textTransform: "none" }}
-                  sx={{
-                    m: 1,
-                    borderRadius: 3,
-                    fontSize: 14,
-                    fontFamily: "Arial",
-                    fontWeight: 100,
-                  }}
+
+                <Snackbar
+                  open={open}
+                  autoHideDuration={3000}
+                  onClose={handleClose}
                 >
-                  Submit Rating
-                </Button>
+                  <Alert severity="success" onClose={handleClose}>
+                    {" "}
+                    Rating saved{" "}
+                  </Alert>
+                </Snackbar>
               </div>
             </div>
             <div className={styles.titleButtonContainer}>

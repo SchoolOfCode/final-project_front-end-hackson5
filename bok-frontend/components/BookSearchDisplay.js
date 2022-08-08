@@ -15,7 +15,7 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
   const [readingListSelection, setReadingListSelection] = useState();
   const [listSelectionId, setListSelectionId] = useState();
   const [listSelectWarning, setListSelectWarning] = useState(false);
-  const [bookAddedSuccess, setBookAddedSuccess] = useState(false)
+  const [bookAddedSuccess, setBookAddedSuccess] = useState(false);
 
   console.log(listSelectionId);
 
@@ -46,10 +46,10 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ books: bookId }),
-        },
-        )
-        setBookAddedSuccess(true)
-        return;
+        }
+      );
+      setBookAddedSuccess(true);
+      return;
     }
     setListSelectWarning(true);
   };
@@ -61,15 +61,13 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
     setReadingListSelection(e.target.value);
   };
 
-
   const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
-    setListSelectWarning(false)
+    setListSelectWarning(false);
     setBookAddedSuccess(false);
   };
-
 
   if (!data) {
     return <CircularProgress />;
@@ -131,21 +129,33 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
                 >
                   Add To List
                 </Button>
-                
-                 
-                  <Link href="/myLists">
-                  <a> 
-                  <Snackbar open={listSelectWarning} autoHideDuration={6000} onClose={handleClose} >
-                  <Alert severity="error" onClose={handleClose} > Create or select a list to get started - click me to go to your lists </Alert> 
-                  </Snackbar>
+
+                <Link href="/myLists">
+                  <a>
+                    <Snackbar
+                      open={listSelectWarning}
+                      autoHideDuration={6000}
+                      onClose={handleClose}
+                    >
+                      <Alert severity="error" onClose={handleClose}>
+                        {" "}
+                        Create or select a list to get started - click me to go
+                        to your lists{" "}
+                      </Alert>
+                    </Snackbar>
                   </a>
-                  </Link>
-                
-               
-                 <Snackbar open={bookAddedSuccess} autoHideDuration={3000} onClose={handleClose} >
-                   <Alert severity="success" onClose={handleClose} > Book added to your list </Alert> 
-                   </Snackbar>
-                
+                </Link>
+
+                <Snackbar
+                  open={bookAddedSuccess}
+                  autoHideDuration={3000}
+                  onClose={handleClose}
+                >
+                  <Alert severity="success" onClose={handleClose}>
+                    {" "}
+                    Book added to your list{" "}
+                  </Alert>
+                </Snackbar>
               </div>
             </div>
           </div>
