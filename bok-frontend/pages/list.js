@@ -95,8 +95,7 @@ function individuallist() {
             m: 1,
             borderRadius: 3,
             fontSize: 14,
-            fontFamily: "Arial",
-            fontWeight: 100,
+           
           }}
         >
           Edit Name
@@ -121,8 +120,7 @@ function individuallist() {
               m: 1,
               borderRadius: 3,
               fontSize: 14,
-              fontFamily: "Arial",
-              fontWeight: 100,
+              
             }}
           >
             Update
