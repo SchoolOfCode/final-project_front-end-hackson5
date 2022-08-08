@@ -46,7 +46,10 @@ function NavBar() {
               disableUnderline: true,
               endAdornment: (
                 <InputAdornment position="end">
-                  <SearchIcon />
+                  <SearchIcon
+                    style={{ cursor: "pointer" }}
+                    onClick={(e) => handleSubmit(e)}
+                  />
                 </InputAdornment>
               ),
             }}

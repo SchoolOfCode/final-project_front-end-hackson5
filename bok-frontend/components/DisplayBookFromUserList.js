@@ -65,9 +65,8 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
       }
     );
   };
-
   if (bookData.length === 0) {
-    return <CircularProgress />;
+    return <div>Your list is empty.</div>;
   } else {
     return bookData?.map((arr, index) => {
       return (
