@@ -50,6 +50,9 @@ function search() {
   };
 
   return (
+
+   
+
     <div className={styles.searchResultsContainer}>
       {displayOpen && (
         <div

@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Alert, Button, Snackbar } from "@mui/material";
 import styles from "../styles/BookItem.module.css";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useUser } from "@auth0/nextjs-auth0";
@@ -15,6 +15,7 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
   const [readingListSelection, setReadingListSelection] = useState();
   const [listSelectionId, setListSelectionId] = useState();
   const [listSelectWarning, setListSelectWarning] = useState(false);
+  const [bookAddedSuccess, setBookAddedSuccess] = useState(false)
 
   console.log(listSelectionId);
 
@@ -45,9 +46,10 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ books: bookId }),
-        }
-      );
-      return;
+        },
+        )
+        setBookAddedSuccess(true)
+        return;
     }
     setListSelectWarning(true);
   };
@@ -58,6 +60,16 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
     setListSelectionId(e.target.childNodes[index].id);
     setReadingListSelection(e.target.value);
   };
+
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setBookAddedSuccess(false);
+  };
+
 
   if (!data) {
     return <CircularProgress />;
@@ -121,9 +133,14 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
                 </Button>
                 {listSelectWarning && (
                   <Link href="/myLists">
-                    <a>Create or select a list to get started.</a>
+                  <a> <Alert severity="warning" > Create or select a list to get started. </Alert> </a>
                   </Link>
                 )}
+               
+                 <Snackbar open={bookAddedSuccess} autoHideDuration={3000} onClose={handleClose} >
+                   <Alert severity="success" onClose={handleClose} > Book added to your list </Alert> 
+                   </Snackbar>
+                
               </div>
             </div>
           </div>

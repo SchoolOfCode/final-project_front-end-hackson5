@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import { ReadingListDropDown } from "../components/ReadingListDropDown";
-import { Button } from "@mui/material";
+import { Alert, Button } from "@mui/material";
 import styles from "../styles/SurpriseMe.module.css";
 import CircularProgress from "@mui/material/CircularProgress";
 
@@ -105,10 +105,11 @@ function surpriseme({ data }) {
         type="text"
       ></input>
       {warning && (
-        <p className={styles.surpriseMeErrorMsg}>
-          Your search needs to be more than three characters and contains no
-          numbers or special characters!
-        </p>
+
+        <Alert severity="error">Your search needs to be more than three characters and contains no
+          numbers or special characters!</Alert>
+      
+
       )}
       <Button
         onClick={handleClick}

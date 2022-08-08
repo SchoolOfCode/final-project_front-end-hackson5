@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@mui/material";
+import { Alert, Button } from "@mui/material";
 import { useUser } from "@auth0/nextjs-auth0";
 import styles from "../styles/SurpriseMe.module.css";
 
@@ -82,11 +82,17 @@ function AddReadingList({ setReadingList, readingList }) {
         </Button>
       </div>
       {warning && (
-        <p style={{ color: "rgb(251, 72, 72)", textAlign: "center" }}>
+        
+    <Alert severity="error"> Your list name needs to be more than three characters and contains no
+          numbers or special characters!</Alert> 
+        /* <p style={{ color: "rgb(251, 72, 72)", textAlign: "center" }}>
           Your list name needs to be more than three characters and contains no
           numbers or special characters!
-        </p>
+        </p>  */
+      
+      
       )}
+      
     </div>
   );
 }
