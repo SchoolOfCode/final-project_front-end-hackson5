@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/DisplayBook.module.css";
-import { Button } from "@mui/material";
+import { Alert, Button } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
@@ -66,7 +66,7 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
     );
   };
   if (bookData.length === 0) {
-    return <div>Your list is empty.</div>;
+    return <Alert severity="info">Your list is empty.</Alert>;
   } else {
     return bookData?.map((arr, index) => {
       return (
