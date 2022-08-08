@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { useRouter } from "next/router";
-import { Button } from "@mui/material";
+import { Button, Alert } from "@mui/material";
 import { DisplayBookFromUserList } from "../components/DisplayBookFromUserList";
 import styles from "../styles/List.module.css";
 
@@ -129,12 +129,16 @@ function individuallist() {
           </Button>
         </div>
       )}
-      {warning && (
-        <p style={{ color: "rgb(251, 72, 72)", textAlign: "center" }}>
-          Your list name needs to be more than three characters and contains no
-          numbers or special characters!
-        </p>
-      )}
+      
+
+      { warning && (
+
+            <Alert severity="error"> Your list name needs to be more than three characters and contains no
+          numbers or special characters!</Alert> 
+      )
+
+      }
+
       <DisplayBookFromUserList
         className={styles.displayBook}
         bookList={bookIDList}

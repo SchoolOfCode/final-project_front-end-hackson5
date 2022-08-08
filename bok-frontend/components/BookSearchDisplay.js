@@ -152,8 +152,7 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
                   onClose={handleClose}
                 >
                   <Alert severity="success" onClose={handleClose}>
-                    {" "}
-                    Book added to your list{" "}
+                  {`${arr.title} added to your list`}
                   </Alert>
                 </Snackbar>
               </div>
