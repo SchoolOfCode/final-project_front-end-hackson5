@@ -96,6 +96,9 @@ function surpriseme({ data }) {
       <input
         className={styles.search}
         placeholder="Search Topic..."
+        onKeyDown={(e) =>
+          e.key === "Enter" ? handleClick() : console.log(false)
+        }
         onChange={(e) => {
           handleChange(e);
         }}

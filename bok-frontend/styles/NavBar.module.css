@@ -130,9 +130,7 @@
         margin: 10px 10px 0px -30px; 
     }
     .desktopLinksContainer{
-        visibility: hidden;
-        width: 0px;
-        min-width: 0px;
+        display: none;
     }
 }
 
