@@ -65,6 +65,8 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
       }
     );
   };
+
+  console.log(bookData);
   if (bookData.length === 0) {
     return <Alert severity="info">Your list is empty.</Alert>;
   } else {
@@ -84,9 +86,11 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
               />
               <div className={styles.starRating}>
                 <Rating
-                  name="simple-controlled"
+                  name="unique-rating"
                   value={arr.rating}
                   onChange={(event, newValue) => {
+                    (bookData[index].rating = newValue),
+                      setBookData([...bookData]);
                     setValue(newValue);
                   }}
                 />
