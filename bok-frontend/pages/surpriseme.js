@@ -21,7 +21,7 @@ function surpriseme({ data }) {
   };
 
   const handleClick = async () => {
-    if (userInput.length <= 2 || /\W|_|\d/g.test(userInput)) {
+    if (userInput.length <= 2 || /^[a-zA-Z\s\-]*$/.test(userInput) === false ) {
       setWarning(true);
       return;
     }

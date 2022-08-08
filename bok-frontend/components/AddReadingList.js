@@ -5,20 +5,28 @@ import styles from "../styles/SurpriseMe.module.css";
 
 //Sends a post request to the database to add a new reading list for a user
 
-function AddReadingList({ setReadingList }) {
+function AddReadingList({ setReadingList, readingList }) {
   const { user } = useUser();
   const [warning, setWarning] = useState(false);
   const [userListNameInput, setUserListNameInput] = useState("");
 
+  
+  
   //Post request to database. body: user_id is the user id from auth0 and the reading_list_name is the user's new reading list name
   const handleClick = async () => {
+    const checkDuplicate = readingList.filter(list => {
+     return userListNameInput === list.reading_list_name
+    })
+     
     if (
       userListNameInput.length <= 2 ||
-      /^[a-zA-Z\s\-]*$/.test(userListNameInput) === false
-    ) {
+      /^[a-zA-Z\s\-]*$/.test(userListNameInput) === false  || checkDuplicate.length !== 0 
+      ) {
+     
       setWarning(true);
       return;
     }
+    
     setUserListNameInput("");
     setWarning(false);
     const id = user.sub.substring(user.sub.indexOf("|") + 1);
