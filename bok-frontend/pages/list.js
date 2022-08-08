@@ -28,7 +28,7 @@ function individuallist() {
       let list = [];
 
       data?.payload.map((arr) => {
-        list = [...list, arr.books];
+        list = [...list, { bookid: arr.books, rating: arr.rating }];
       });
 
       setbookIDList(list);
@@ -48,7 +48,7 @@ function individuallist() {
   // router.push is to reset the url to the new list name provided. This is
   //for when the page is refreshed.
   const editListName = async () => {
-    setEditInputHidden(!editInputHidden)
+    setEditInputHidden(!editInputHidden);
     await fetch(`https://hackson5.herokuapp.com/readinglist/${urlQuery[1]}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
