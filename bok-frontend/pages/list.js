@@ -16,6 +16,7 @@ function individuallist() {
   const [editInputHidden, setEditInputHidden] = useState(true);
   const [newUserListName, setNewUserListName] = useState("");
   const [uniqueListId, setUniqueListId] = useState(urlQuery[2]);
+  const [warning, setWarning] = useState(false);
 
   //Fetchs all book ids for a specific reading list and passes it down to the DisplayBook component
   useEffect(() => {
@@ -48,7 +49,17 @@ function individuallist() {
   // router.push is to reset the url to the new list name provided. This is
   //for when the page is refreshed.
   const editListName = async () => {
-    setEditInputHidden(!editInputHidden)
+    console.log(newUserListName);
+    if (
+      newUserListName.length <= 2 ||
+      /^[a-zA-Z\s\-]*$/.test(newUserListName) === false
+    ) {
+      console.log(true);
+      setWarning(true);
+      return;
+    }
+    setWarning(false);
+    setEditInputHidden(!editInputHidden);
     await fetch(`https://hackson5.herokuapp.com/readinglist/${urlQuery[1]}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -118,6 +129,12 @@ function individuallist() {
             Update
           </Button>
         </div>
+      )}
+      {warning && (
+        <p style={{ color: "rgb(251, 72, 72)", textAlign: "center" }}>
+          Your list name needs to be more than three characters and contains no
+          numbers or special characters!
+        </p>
       )}
       <DisplayBookFromUserList
         className={styles.displayBook}

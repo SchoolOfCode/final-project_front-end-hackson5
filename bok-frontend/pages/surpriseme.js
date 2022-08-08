@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import { ReadingListDropDown } from "../components/ReadingListDropDown";
-import { Button } from "@mui/material";
+import { Alert, Button } from "@mui/material";
 import styles from "../styles/SurpriseMe.module.css";
 import CircularProgress from "@mui/material/CircularProgress";
 
@@ -21,7 +21,7 @@ function surpriseme({ data }) {
   };
 
   const handleClick = async () => {
-    if (userInput.length <= 2 || /\W|_|\d/g.test(userInput)) {
+    if (userInput.length <= 2 || /^[a-zA-Z\s\-]*$/.test(userInput) === false ) {
       setWarning(true);
       return;
     }
@@ -96,16 +96,20 @@ function surpriseme({ data }) {
       <input
         className={styles.search}
         placeholder="Search Topic..."
+        onKeyDown={(e) =>
+          e.key === "Enter" ? handleClick() : console.log(false)
+        }
         onChange={(e) => {
           handleChange(e);
         }}
         type="text"
       ></input>
       {warning && (
-        <p className={styles.surpriseMeErrorMsg}>
-          Your search needs to be more than three characters and contains no
-          numbers or special characters!
-        </p>
+
+        <Alert severity="error">Your search needs to be more than three characters and contains no
+          numbers or special characters!</Alert>
+      
+
       )}
       <Button
         onClick={handleClick}
@@ -174,7 +178,7 @@ function surpriseme({ data }) {
               </div>
               {listSelectWarning && (
                 <div style={{ color: "rgb(251, 72, 72)", textAlign: "center" }}>
-                  Please select a list.
+                  Please create or select a list.
                 </div>
               )}
             </div>

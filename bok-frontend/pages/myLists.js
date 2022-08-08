@@ -15,17 +15,18 @@ function AllReadingLists() {
       const res = await fetch(
         `https://hackson5.herokuapp.com/readinglist/${user.sub.substring(
           user.sub.indexOf("|") + 1
-        )}`
-      );
-      const data = await res.json();
-      setReadingList(data.payload);
-    };
-    fetchData();
-  }, [user]);
-
+          )}`
+          );
+          const data = await res.json();
+          setReadingList(data.payload);
+        };
+        fetchData();
+      }, [user]);
+      
+      console.log(readingList)
   return (
     <div className={styles.mylistcontainer}>
-      <AddReadingList setReadingList={setReadingList} />
+      <AddReadingList setReadingList={setReadingList} readingList={readingList} />
       <ReadingList readingList={readingList} setReadingList={setReadingList} />
     </div>
   );

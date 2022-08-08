@@ -51,46 +51,47 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
     //spread new bookdata into new array
     //setBookData to the new spread array
   };
-  console.log(bookData)
+  console.log(bookData);
   if (bookData.length === 0) {
-    return <CircularProgress />;
+    return <div>Your list is empty.</div>;
   } else {
     return bookData?.map((arr, index) => {
       return (
         <div key={index} className={styles.bookContainer}>
-        <div className={styles.infoContainer}>
-          <div className={styles.bookCover}>
-            <img className={styles.searchImage}
-              src={
-                typeof arr.covers === "object"
-                  ? `https://covers.openlibrary.org/b/id/${arr.covers[0]}-L.jpg`
-                  : `https://covers.openlibrary.org/b/id/${arr.covers}-L.jpg`
-              }
-              width={100}
-            />
+          <div className={styles.infoContainer}>
+            <div className={styles.bookCover}>
+              <img
+                className={styles.searchImage}
+                src={
+                  typeof arr.covers === "object"
+                    ? `https://covers.openlibrary.org/b/id/${arr.covers[0]}-L.jpg`
+                    : `https://covers.openlibrary.org/b/id/${arr.covers}-L.jpg`
+                }
+                width={100}
+              />
+            </div>
+            <div className={styles.titleButtonContainer}>
+              <p>{arr.title}</p>
+              <Button
+                onClick={() => {
+                  deleteBookFromList(arr.key.split("/works/")[1]);
+                }}
+                color="secondary"
+                variant="contained"
+                size="large"
+                style={{ textTransform: "none" }}
+                sx={{
+                  m: 1,
+                  borderRadius: 3,
+                  fontSize: 14,
+                  fontFamily: "Arial",
+                  fontWeight: 100,
+                }}
+              >
+                Remove Book
+              </Button>
+            </div>
           </div>
-          <div className={styles.titleButtonContainer}>
-            <p>{arr.title}</p>
-            <Button
-              onClick={() => {
-                deleteBookFromList(arr.key.split("/works/")[1]);
-              }}
-              color="secondary"
-              variant="contained"
-              size="large"
-              style={{ textTransform: "none" }}
-              sx={{
-                m: 1,
-                borderRadius: 3,
-                fontSize: 14,
-                fontFamily: "Arial",
-                fontWeight: 100,
-              }}
-            >
-              Remove Book
-            </Button>
-          </div>
-        </div>
         </div>
       );
     });
