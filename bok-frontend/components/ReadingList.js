@@ -1,6 +1,6 @@
 import styles from "../styles/Readinglists.module.css";
 import { useEffect, useState } from "react";
-import { Button } from "@mui/material";
+import { Alert, Button } from "@mui/material";
 import { useRouter } from "next/router";
 import { useUser } from "@auth0/nextjs-auth0";
 
@@ -106,6 +106,9 @@ function ReadingList({ readingList, setReadingList }) {
     fetchData();
   }, [readingList]);
 
+  if (readingList?.length === 0) {
+    return <Alert severity="info">You have no reading lists.</Alert>;
+  }
   return godState?.map((arr, index) => {
     return (
       <div key={arr.reading_list_id} className={styles.bookContainer}>
