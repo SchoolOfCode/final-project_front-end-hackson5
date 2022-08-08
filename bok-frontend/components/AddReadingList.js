@@ -85,11 +85,7 @@ function AddReadingList({ setReadingList, readingList }) {
         
     <Alert severity="error"> Your list name needs to be more than three characters and contains no
           numbers or special characters!</Alert> 
-        /* <p style={{ color: "rgb(251, 72, 72)", textAlign: "center" }}>
-          Your list name needs to be more than three characters and contains no
-          numbers or special characters!
-        </p>  */
-      
+    
       
       )}
       
