@@ -4,6 +4,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { useUser } from "@auth0/nextjs-auth0";
 import { useEffect, useState } from "react";
 import { ReadingListDropDown } from "./ReadingListDropDown";
+import Link from "next/link";
 
 //This is a component which includes a bookcover image, book title, description and an add to list button.
 //It uses data as props pass down to the component and maps through it
@@ -13,6 +14,9 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
   const [allReadingLists, setallReadingLists] = useState();
   const [readingListSelection, setReadingListSelection] = useState();
   const [listSelectionId, setListSelectionId] = useState();
+  const [listSelectWarning, setListSelectWarning] = useState(false);
+
+  console.log(listSelectionId);
 
   //Fetchs all reading lists for a user
   useEffect(() => {
@@ -30,17 +34,22 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
 
   //Sends a post request based on a user's selected reading list and adds a book to it
   const handleClick = async (bookId) => {
-    const id = user.sub.substring(user.sub.indexOf("|") + 1);
-    const response = await fetch(
-      `https://hackson5.herokuapp.com/readinglist/${user.sub.substring(
-        user.sub.indexOf("|") + 1
-      )}/${listSelectionId}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ books: bookId }),
-      }
-    );
+    if (listSelectionId) {
+      setListSelectWarning(false);
+      const id = user.sub.substring(user.sub.indexOf("|") + 1);
+      const response = await fetch(
+        `https://hackson5.herokuapp.com/readinglist/${user.sub.substring(
+          user.sub.indexOf("|") + 1
+        )}/${listSelectionId}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ books: bookId }),
+        }
+      );
+      return;
+    }
+    setListSelectWarning(true);
   };
 
   //Selecting the user's reading list and saving the reading list id
@@ -49,8 +58,6 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
     setListSelectionId(e.target.childNodes[index].id);
     setReadingListSelection(e.target.value);
   };
-
-  console.log(data);
 
   if (!data) {
     return <CircularProgress />;
@@ -73,22 +80,24 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
             <div className={styles.contentContainer}>
               <p>{arr.title}</p>
               <div className={styles.authorAndButton}>
-              <p>{!arr.author_name ? "Author Unknown" : arr.author_name[0]}</p>
-              <Button
-                onClick={() => bookInfoDisplay(arr.key)}
-                color="secondary"
-                variant="contained"
-                size="large"
-                style={{ textTransform: "none" }}
-                sx={{
-                  borderRadius: 3,
-                  fontSize: 14,
-                  fontFamily: "Arial",
-                  fontWeight: 100,
-                }}
-              >
-                More Info
-              </Button>
+                <p>
+                  {!arr.author_name ? "Author Unknown" : arr.author_name[0]}
+                </p>
+                <Button
+                  onClick={() => bookInfoDisplay(arr.key)}
+                  color="secondary"
+                  variant="contained"
+                  size="large"
+                  style={{ textTransform: "none" }}
+                  sx={{
+                    borderRadius: 3,
+                    fontSize: 14,
+                    fontFamily: "Arial",
+                    fontWeight: 100,
+                  }}
+                >
+                  More Info
+                </Button>
               </div>
               <div>
                 <ReadingListDropDown
@@ -110,6 +119,11 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
                 >
                   Add To List
                 </Button>
+                {listSelectWarning && (
+                  <Link href="/myLists">
+                    <a>Create or select a list to get started.</a>
+                  </Link>
+                )}
               </div>
             </div>
           </div>

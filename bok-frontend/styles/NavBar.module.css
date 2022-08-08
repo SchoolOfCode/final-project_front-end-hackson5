@@ -5,7 +5,7 @@
     align-items: center;
     min-width: 300px;
     background-color: #DDE7C7;
-    direction: "true"
+    direction: "true";
 }
 
 .navbarContainer {
@@ -131,6 +131,7 @@
     }
     .desktopLinksContainer{
         display: none;
+
     }
 }
 

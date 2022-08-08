@@ -177,7 +177,7 @@ function surpriseme({ data }) {
               </div>
               {listSelectWarning && (
                 <div style={{ color: "rgb(251, 72, 72)", textAlign: "center" }}>
-                  Please select a list.
+                  Please create or select a list.
                 </div>
               )}
             </div>

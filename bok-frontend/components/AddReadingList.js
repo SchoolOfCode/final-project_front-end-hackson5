@@ -12,7 +12,10 @@ function AddReadingList({ setReadingList }) {
 
   //Post request to database. body: user_id is the user id from auth0 and the reading_list_name is the user's new reading list name
   const handleClick = async () => {
-    if (userListNameInput.length <= 2 || /\W|_|\d/g.test(userListNameInput)) {
+    if (
+      userListNameInput.length <= 2 ||
+      /^[a-zA-Z\s\-]*$/.test(userListNameInput) === false
+    ) {
       setWarning(true);
       return;
     }
@@ -38,38 +41,37 @@ function AddReadingList({ setReadingList }) {
   };
 
   return (
-    <div 
-    style={{
-    display: "flex",
-    justifyContent: "center",
-    alignItems: 'center',
-    flexDirection: "column"  
-    }}
-      >
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
       <div>
-      <input
-        className={styles.search}
-
-        value={userListNameInput}
-        onChange={(e) => setUserListNameInput(e.target.value)}
-        placeholder="Enter a List Name..."
-      />
-      <Button
-        onClick={() => handleClick()}
-        color="secondary"
-        variant="contained"
-        size="large"
-        style={{ textTransform: "none" }}
-        sx={{
-          m: 1,
-          borderRadius: 3,
-          fontSize: 14,
-          fontFamily: "Arial",
-          fontWeight: 100,
-        }}
-      >
-        Add List
-      </Button>
+        <input
+          className={styles.search}
+          value={userListNameInput}
+          onChange={(e) => setUserListNameInput(e.target.value)}
+          placeholder="Enter a List Name..."
+        />
+        <Button
+          onClick={() => handleClick()}
+          color="secondary"
+          variant="contained"
+          size="large"
+          style={{ textTransform: "none" }}
+          sx={{
+            m: 1,
+            borderRadius: 3,
+            fontSize: 14,
+            fontFamily: "Arial",
+            fontWeight: 100,
+          }}
+        >
+          Add List
+        </Button>
       </div>
       {warning && (
         <p style={{ color: "rgb(251, 72, 72)", textAlign: "center" }}>
