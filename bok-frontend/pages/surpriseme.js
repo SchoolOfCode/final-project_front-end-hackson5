@@ -121,9 +121,7 @@ function surpriseme({ data }) {
           m: 1,
           borderRadius: 3,
           fontSize: 14,
-          fontFamily: "Arial",
-          fontWeight: 100,
-        }}
+          }}
       >
         Find New Book
       </Button>
@@ -168,8 +166,7 @@ function surpriseme({ data }) {
                       m: 1,
                       borderRadius: 3,
                       fontSize: 14,
-                      fontFamily: "Arial",
-                      fontWeight: 100,
+                      
                     }}
                   >
                     Add to list

@@ -24,7 +24,6 @@ function login() {
               width: 100,
               borderRadius: 3,
               fontSize: 18,
-              fontFamily: "Arial",
               color: "#484848",
             }}
           >

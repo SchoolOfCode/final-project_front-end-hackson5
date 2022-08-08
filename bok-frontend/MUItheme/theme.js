@@ -21,6 +21,7 @@ const theme = createTheme({
   
       'sans-serif',
          ].join(','),
+         fontWeight: 400
   },
  
 });

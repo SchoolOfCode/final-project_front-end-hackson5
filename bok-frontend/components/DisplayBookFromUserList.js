@@ -130,8 +130,7 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
                   m: 1,
                   borderRadius: 3,
                   fontSize: 14,
-                  fontFamily: "Arial",
-                  fontWeight: 100,
+                  
                 }}
               >
                 Remove Book

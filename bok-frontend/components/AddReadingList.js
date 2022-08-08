@@ -74,8 +74,7 @@ function AddReadingList({ setReadingList, readingList }) {
             m: 1,
             borderRadius: 3,
             fontSize: 14,
-            fontFamily: "Arial",
-            fontWeight: 100,
+            
           }}
         >
           Add List

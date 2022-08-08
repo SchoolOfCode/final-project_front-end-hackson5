@@ -102,8 +102,7 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
                   sx={{
                     borderRadius: 3,
                     fontSize: 14,
-                    fontFamily: "Arial",
-                    fontWeight: 100,
+                    
                   }}
                 >
                   More Info
@@ -123,8 +122,7 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
                   sx={{
                     borderRadius: 3,
                     fontSize: 14,
-                    fontFamily: "Arial",
-                    fontWeight: 100,
+                    
                   }}
                 >
                   Add To List
