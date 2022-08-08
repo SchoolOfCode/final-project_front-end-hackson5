@@ -66,7 +66,7 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
     if (reason === 'clickaway') {
       return;
     }
-
+    setListSelectWarning(false)
     setBookAddedSuccess(false);
   };
 
@@ -131,11 +131,16 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
                 >
                   Add To List
                 </Button>
-                {listSelectWarning && (
+                
+                 
                   <Link href="/myLists">
-                  <a> <Alert severity="warning" > Create or select a list to get started. </Alert> </a>
+                  <a> 
+                  <Snackbar open={listSelectWarning} autoHideDuration={6000} onClose={handleClose} >
+                  <Alert severity="error" onClose={handleClose} > Create or select a list to get started - click me to go to your lists </Alert> 
+                  </Snackbar>
+                  </a>
                   </Link>
-                )}
+                
                
                  <Snackbar open={bookAddedSuccess} autoHideDuration={3000} onClose={handleClose} >
                    <Alert severity="success" onClose={handleClose} > Book added to your list </Alert> 
