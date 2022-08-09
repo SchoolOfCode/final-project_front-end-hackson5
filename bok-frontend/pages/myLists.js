@@ -15,18 +15,24 @@ function AllReadingLists() {
       const res = await fetch(
         `https://hackson5.herokuapp.com/readinglist/${user.sub.substring(
           user.sub.indexOf("|") + 1
-          )}`
-          );
-          const data = await res.json();
-          setReadingList(data.payload);
-        };
-        fetchData();
-      }, [user]);
-      
-      console.log(readingList)
+        )}`
+      );
+      const data = await res.json();
+      setReadingList(data.payload);
+    };
+    fetchData();
+  }, [user]);
+
   return (
     <div className={styles.mylistcontainer}>
-      <AddReadingList setReadingList={setReadingList} readingList={readingList} />
+      <h2>My Lists</h2>
+      <AddReadingList
+        setReadingList={setReadingList}
+        readingList={readingList}
+      />
+      <p style={{ textAlign: "center" }}>
+        Organise your books into curated lists on this page.
+      </p>
       <ReadingList readingList={readingList} setReadingList={setReadingList} />
     </div>
   );

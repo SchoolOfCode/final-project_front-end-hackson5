@@ -76,7 +76,12 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
   };
 
   if (bookData.length === 0) {
-    return <Alert severity="info">Your list is empty.</Alert>;
+    return (
+      <Alert severity="info">
+        Your list is empty. Use the "Search books..." bar to add books to your
+        list.
+      </Alert>
+    );
   } else {
     return bookData?.map((arr, index) => {
       return (
@@ -130,7 +135,6 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
                   m: 1,
                   borderRadius: 3,
                   fontSize: 14,
-                  
                 }}
               >
                 Remove Book

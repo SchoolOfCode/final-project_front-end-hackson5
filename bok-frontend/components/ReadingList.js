@@ -136,7 +136,6 @@ function ReadingList({ readingList, setReadingList }) {
                 m: 1,
                 borderRadius: 3,
                 fontSize: 14,
-                
               }}
             >
               View List
@@ -151,7 +150,6 @@ function ReadingList({ readingList, setReadingList }) {
                 m: 1,
                 borderRadius: 3,
                 fontSize: 14,
-                
               }}
             >
               Delete List

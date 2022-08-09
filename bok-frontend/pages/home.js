@@ -49,6 +49,10 @@ function Home() {
           height="300"
         ></Image>
       </div>
+      <p className={styles.bokDescription}>
+        BÖK is your online personal library. Add and rate the books you love to
+        your curated lists.
+      </p>
       <div className={styles.FavAutChart}>
         <h3>Favourite Authors</h3>
         <div className={styles.FavAutBarChart}>
@@ -64,7 +68,6 @@ function Home() {
               m: 1,
               borderRadius: 3,
               fontSize: 14,
-              
             }}
           >
             My Profile
@@ -82,8 +85,6 @@ function Home() {
             m: 1,
             borderRadius: 3,
             fontSize: 14,
-            
-          
           }}
         >
           View all Lists

@@ -17,8 +17,6 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
   const [listSelectWarning, setListSelectWarning] = useState(false);
   const [bookAddedSuccess, setBookAddedSuccess] = useState(false);
 
-  console.log(listSelectionId);
-
   //Fetchs all reading lists for a user
   useEffect(() => {
     const fetchReadingLists = async () => {
@@ -102,7 +100,6 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
                   sx={{
                     borderRadius: 3,
                     fontSize: 14,
-                    
                   }}
                 >
                   More Info
@@ -122,7 +119,6 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
                   sx={{
                     borderRadius: 3,
                     fontSize: 14,
-                    
                   }}
                 >
                   Add To List
@@ -150,7 +146,7 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
                   onClose={handleClose}
                 >
                   <Alert severity="success" onClose={handleClose}>
-                  Book added to your list
+                    Book added to your list
                   </Alert>
                 </Snackbar>
               </div>
