@@ -18,19 +18,19 @@ function Home() {
   const { user } = useUser();
 
   //Fetchs all reading lists for a specific user and passes the first two to readingList component
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(
-        `https://hackson5.herokuapp.com/readinglist/${user.sub.substring(
-          user.sub.indexOf("|") + 1
-        )}`
-      );
-      const data = await res.json();
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const res = await fetch(
+  //       `https://hackson5.herokuapp.com/readinglist/${user.sub.substring(
+  //         user.sub.indexOf("|") + 1
+  //       )}`
+  //     );
+  //     const data = await res.json();
 
-      setReadingList(data.payload.slice(0, 2));
-    };
-    fetchData();
-  }, [user]);
+  //     setReadingList(data.payload.slice(0, 2));
+  //   };
+  //   fetchData();
+  // }, [user]);
 
   return (
     //add a button to stats component
@@ -64,7 +64,6 @@ function Home() {
               m: 1,
               borderRadius: 3,
               fontSize: 14,
-              
             }}
           >
             My Profile
@@ -82,8 +81,6 @@ function Home() {
             m: 1,
             borderRadius: 3,
             fontSize: 14,
-            
-          
           }}
         >
           View all Lists
@@ -100,4 +97,4 @@ function Home() {
   );
 }
 
-export default withPageAuthRequired(Home);
+export default Home;

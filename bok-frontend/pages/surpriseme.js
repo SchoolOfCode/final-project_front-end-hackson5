@@ -21,7 +21,7 @@ function surpriseme({ data }) {
   };
 
   const handleClick = async () => {
-    if (userInput.length <= 2 || /^[a-zA-Z\s\-]*$/.test(userInput) === false ) {
+    if (userInput.length <= 2 || /^[a-zA-Z\s\-]*$/.test(userInput) === false) {
       setWarning(true);
       return;
     }
@@ -51,41 +51,41 @@ function surpriseme({ data }) {
     }
   }, [bookID]);
 
-  useEffect(() => {
-    const fetchReadingListData = async () => {
-      const res = await fetch(
-        `https://hackson5.herokuapp.com/readinglist/${user.sub.substring(
-          user.sub.indexOf("|") + 1
-        )}`
-      );
-      const data = await res.json();
-      setReadingListData(data.payload);
-    };
-    fetchReadingListData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchReadingListData = async () => {
+  //     const res = await fetch(
+  //       `https://hackson5.herokuapp.com/readinglist/${user.sub.substring(
+  //         user.sub.indexOf("|") + 1
+  //       )}`
+  //     );
+  //     const data = await res.json();
+  //     setReadingListData(data.payload);
+  //   };
+  //   fetchReadingListData();
+  // }, []);
 
   const handleSelectionChange = (e) => {
     const index = e.target.selectedIndex;
     setListSelectionId(e.target.childNodes[index].id);
   };
 
-  const addBookToList = async () => {
-    if (listSelectionId) {
-      setListSelectWarning(false);
-      const response = await fetch(
-        `https://hackson5.herokuapp.com/readinglist/${user.sub.substring(
-          user.sub.indexOf("|") + 1
-        )}/${listSelectionId}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ books: bookID.split("/works/")[1] }),
-        }
-      );
-      return;
-    }
-    setListSelectWarning(true);
-  };
+  // const addBookToList = async () => {
+  //   if (listSelectionId) {
+  //     setListSelectWarning(false);
+  //     const response = await fetch(
+  //       `https://hackson5.herokuapp.com/readinglist/${user.sub.substring(
+  //         user.sub.indexOf("|") + 1
+  //       )}/${listSelectionId}`,
+  //       {
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify({ books: bookID.split("/works/")[1] }),
+  //       }
+  //     );
+  //     return;
+  //   }
+  //   setListSelectWarning(true);
+  // };
 
   return (
     <div className={styles.SurpriseMeContainer}>
@@ -105,11 +105,10 @@ function surpriseme({ data }) {
         type="text"
       ></input>
       {warning && (
-
-        <Alert severity="error">Your search needs to be more than three characters and contains no
-          numbers or special characters!</Alert>
-      
-
+        <Alert severity="error">
+          Your search needs to be more than three characters and contains no
+          numbers or special characters!
+        </Alert>
       )}
       <Button
         onClick={handleClick}
@@ -121,7 +120,7 @@ function surpriseme({ data }) {
           m: 1,
           borderRadius: 3,
           fontSize: 14,
-          }}
+        }}
       >
         Find New Book
       </Button>
@@ -166,7 +165,6 @@ function surpriseme({ data }) {
                       m: 1,
                       borderRadius: 3,
                       fontSize: 14,
-                      
                     }}
                   >
                     Add to list
@@ -186,4 +184,4 @@ function surpriseme({ data }) {
   );
 }
 
-export default withPageAuthRequired(surpriseme);
+export default surpriseme;

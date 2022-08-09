@@ -20,39 +20,39 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
   console.log(listSelectionId);
 
   //Fetchs all reading lists for a user
-  useEffect(() => {
-    const fetchReadingLists = async () => {
-      const response = await fetch(
-        `https://hackson5.herokuapp.com/readinglist/${user.sub.substring(
-          user.sub.indexOf("|") + 1
-        )}`
-      );
-      const data = await response.json();
-      setallReadingLists(data.payload);
-    };
-    fetchReadingLists();
-  }, [user]);
+  // useEffect(() => {
+  //   const fetchReadingLists = async () => {
+  //     const response = await fetch(
+  //       `https://hackson5.herokuapp.com/readinglist/${user.sub.substring(
+  //         user.sub.indexOf("|") + 1
+  //       )}`
+  //     );
+  //     const data = await response.json();
+  //     setallReadingLists(data.payload);
+  //   };
+  //   fetchReadingLists();
+  // }, [user]);
 
   //Sends a post request based on a user's selected reading list and adds a book to it
-  const handleClick = async (bookId) => {
-    if (listSelectionId) {
-      setListSelectWarning(false);
-      const id = user.sub.substring(user.sub.indexOf("|") + 1);
-      const response = await fetch(
-        `https://hackson5.herokuapp.com/readinglist/${user.sub.substring(
-          user.sub.indexOf("|") + 1
-        )}/${listSelectionId}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ books: bookId }),
-        }
-      );
-      setBookAddedSuccess(true);
-      return;
-    }
-    setListSelectWarning(true);
-  };
+  // const handleClick = async (bookId) => {
+  //   if (listSelectionId) {
+  //     setListSelectWarning(false);
+  //     const id = user.sub.substring(user.sub.indexOf("|") + 1);
+  //     const response = await fetch(
+  //       `https://hackson5.herokuapp.com/readinglist/${user.sub.substring(
+  //         user.sub.indexOf("|") + 1
+  //       )}/${listSelectionId}`,
+  //       {
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify({ books: bookId }),
+  //       }
+  //     );
+  //     setBookAddedSuccess(true);
+  //     return;
+  //   }
+  //   setListSelectWarning(true);
+  // };
 
   //Selecting the user's reading list and saving the reading list id
   const handleSelectionChange = (e) => {
@@ -102,7 +102,6 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
                   sx={{
                     borderRadius: 3,
                     fontSize: 14,
-                    
                   }}
                 >
                   More Info
@@ -122,7 +121,6 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
                   sx={{
                     borderRadius: 3,
                     fontSize: 14,
-                    
                   }}
                 >
                   Add To List
@@ -150,7 +148,7 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
                   onClose={handleClose}
                 >
                   <Alert severity="success" onClose={handleClose}>
-                  Book added to your list
+                    Book added to your list
                   </Alert>
                 </Snackbar>
               </div>
