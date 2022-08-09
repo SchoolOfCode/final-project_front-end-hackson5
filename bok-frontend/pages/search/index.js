@@ -50,10 +50,8 @@ function search() {
   };
 
   return (
-
-   
-
     <div className={styles.searchResultsContainer}>
+      <div>Displaying results for: {id}</div>
       {displayOpen && (
         <div
           className={styles.backgroundDim}

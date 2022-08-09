@@ -48,7 +48,6 @@ function individuallist() {
   // router.push is to reset the url to the new list name provided. This is
   //for when the page is refreshed.
   const editListName = async () => {
-
     if (
       newUserListName.length <= 2 ||
       /^[a-zA-Z\s\-]*$/.test(newUserListName) === false
@@ -95,7 +94,6 @@ function individuallist() {
             m: 1,
             borderRadius: 3,
             fontSize: 14,
-           
           }}
         >
           Edit Name
@@ -120,22 +118,20 @@ function individuallist() {
               m: 1,
               borderRadius: 3,
               fontSize: 14,
-              
             }}
           >
             Update
           </Button>
         </div>
       )}
-      
 
-      { warning && (
-
-            <Alert severity="error"> Your list name needs to be more than three characters and contains no
-          numbers or special characters!</Alert> 
-      )
-
-      }
+      {warning && (
+        <Alert severity="error">
+          {" "}
+          Your list name needs to be more than three characters and contains no
+          numbers or special characters!
+        </Alert>
+      )}
 
       <DisplayBookFromUserList
         className={styles.displayBook}

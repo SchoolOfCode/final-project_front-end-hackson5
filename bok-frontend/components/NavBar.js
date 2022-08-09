@@ -58,7 +58,7 @@ function NavBar() {
               setInputValue(e.target.value);
             }}
             onKeyDown={(e) => {
-              e.key === "Enter" ? handleSubmit(e) : console.log(false);
+              e.key === "Enter" ? handleSubmit(e) : "";
             }}
           ></TextField>
           <IconButton

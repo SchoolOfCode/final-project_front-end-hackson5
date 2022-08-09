@@ -21,7 +21,7 @@ function surpriseme({ data }) {
   };
 
   const handleClick = async () => {
-    if (userInput.length <= 2 || /^[a-zA-Z\s\-]*$/.test(userInput) === false ) {
+    if (userInput.length <= 2 || /^[a-zA-Z\s\-]*$/.test(userInput) === false) {
       setWarning(true);
       return;
     }
@@ -91,25 +91,22 @@ function surpriseme({ data }) {
     <div className={styles.SurpriseMeContainer}>
       <h1>Surprise Me</h1>
 
-      <p>Search for a random book on the given topic</p>
+      <p>Search for a random book on a given topic.</p>
 
       <input
         className={styles.search}
         placeholder="Search Topic..."
-        onKeyDown={(e) =>
-          e.key === "Enter" ? handleClick() : console.log(false)
-        }
+        onKeyDown={(e) => (e.key === "Enter" ? handleClick() : "")}
         onChange={(e) => {
           handleChange(e);
         }}
         type="text"
       ></input>
       {warning && (
-
-        <Alert severity="error">Your search needs to be more than three characters and contains no
-          numbers or special characters!</Alert>
-      
-
+        <Alert severity="error">
+          Your search needs to be more than three characters and contains no
+          numbers or special characters!
+        </Alert>
       )}
       <Button
         onClick={handleClick}
@@ -121,7 +118,7 @@ function surpriseme({ data }) {
           m: 1,
           borderRadius: 3,
           fontSize: 14,
-          }}
+        }}
       >
         Find New Book
       </Button>
@@ -166,7 +163,6 @@ function surpriseme({ data }) {
                       m: 1,
                       borderRadius: 3,
                       fontSize: 14,
-                      
                     }}
                   >
                     Add to list
