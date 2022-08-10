@@ -74,8 +74,8 @@ Books have a special place in peoples lives. Often, they are treated as prized p
 <img src="https://seeklogo.com/images/H/heroku-logo-B774A78667-seeklogo.com.png" alt="Heroku" title="Heroku" height="75"/>
 <img src="https://seeklogo.com/images/A/auth0-logo-03B0DBA304-seeklogo.com.png" alt="Auth0" title="Auth0" height="75"/>
 <img src="https://seeklogo.com/images/J/jest-logo-F9901EBBF7-seeklogo.com.png" alt="Jest" title="Jest" height="75"/>
-<img src="https://i.ibb.co/x7mFtjZ/Winston.png" alt="Jest" title="Jest" height="75"/>
-<img src="https://i.ibb.co/NL4ryKB/supertest.png" alt="Jest" title="Jest" height="75"/>
+<img src="https://i.ibb.co/x7mFtjZ/Winston.png" alt="Winston" title="Winston" height="75"/>
+<img src="https://i.ibb.co/NL4ryKB/supertest.png" alt="Supertest" title="Supertest" height="75"/>
 
 </p> 
 
