@@ -1,8 +1,10 @@
 <p align="center"><img src="https://puu.sh/JfsZh/a0463ed17d.png" alt="BÖK Logo" width="200"/></p>
 
+### 👋 Meet The Team
+
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png"/>
 
-## 👋 Meet The Team
+
 <a href="https://github.com/ConorG1247">
 <img src="https://avatars.githubusercontent.com/u/102623019?v=4" alt="Rory" title="Rory Hogan" height="50"/> Conor Goddard
 <a/>
@@ -26,12 +28,14 @@
 <a href="https://github.com/RoryHog">
 <img src="https://user-images.githubusercontent.com/102555512/183873685-21ff9756-6b4c-4375-a57e-751b514e6d31.png" alt="Rory" title="Rory Hogan" height="50"/> Rory Hogan
 <a/>
-  
+
+## Project Brief
+
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png"/>
 
+In a team of five decided by the School of Code we were given four weeks to plan, design and build a full stack application.We used the skills learnt during the 16 week bootcamp to achieve this.
+
 ## 📚 What Problem Did We Solve?
-
-
 
 Books have a special place in peoples lives. Often, they are treated as prized possesions and are displayed as such. BÖK offers a curated space for people to indulge in their love of books as well as offering an organisational tool for those with more academic needs.
 
@@ -68,10 +72,40 @@ Books have a special place in peoples lives. Often, they are treated as prized p
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png"/>
   
  
- ## Features
-  
+ ## Features 
+ 
+ <img src="https://i.ibb.co/CWyw4T2/Login.png" alt="Login" title="Login"/>
+ 
+ ### Lists
+ 
+ A way for a user to personalise their space within the app by curating their own customisable lists.
+ 
+ ### Searching
+ 
+ The main way a user populates their list. They search for a particular book title and are presented with results from the Openlibrary API.
+ 
+ ### Surprise me
+ 
+ The secondary way a user populates their list, this is a search based on a topic and presents a random book.
+ 
+ ### Profile
+ 
+ A visual represenatation of a users journey through our app. The rating and total books are dynamic and based on users data with the other features being in development.
  
  ## How We Worked as a Team
   
 As a team we wanted to adopt and agile working method to emulate the experience of working in a real world tech team. We did this by creating a team manifesto to ensure we had a safe environment where everyone's voice could be heard. We committed to holding daily stand-ups and retro meetings. When tackling the project we started by breaking the project down into sprints, stories and tickets. We used software such as Trello, Miro, Canva and Figma to work collaboratively as a team.
+
+## Roadmap
+
+Stats page more dynamic
+
+More stats - reading progress/completed
+
+Search by author
+
+Personal thoughts/journal
+
+Customisable profile - colours, fonts
+
 
