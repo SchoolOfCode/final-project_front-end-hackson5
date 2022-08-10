@@ -66,4 +66,12 @@ Books have a special place in peoples lives. Often, they are treated as prized p
 </p> 
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png"/>
+  
+ 
+ ## Features
+  
+ 
+ ## How We Worked as a Team
+  
+As a team we wanted to adopt and agile working method to emulate the experience of working in a real world tech team. We did this by creating a team manifesto to ensure we had a safe environment where everyone's voice could be heard. We committed to holding daily stand-ups and retro meetings. When tackling the project we started by breaking the project down into sprints, stories and tickets. We used software such as Trello, Miro, Canva and Figma to work collaboratively as a team.
 
