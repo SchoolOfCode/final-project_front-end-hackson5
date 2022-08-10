@@ -23,8 +23,8 @@
 .bokDescription {
   border-bottom: 1px solid rgb(00, 00, 00, 0.3);
   width: 90%;
-  height: 95px;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
+ 
 }
 
 .FavAutChart {
@@ -170,6 +170,13 @@
 @media (min-width: 45rem) {
   .WelcomeImg { 
       width: 40%;
+  }
+}
+@media (min-width: 45rem) {
+  .bokDescription { 
+      width: 40%;
+      padding-top: 10px;
+      padding-bottom: 30px;
   }
 }
 @media (min-width: 45rem) {

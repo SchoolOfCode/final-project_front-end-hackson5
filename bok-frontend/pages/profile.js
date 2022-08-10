@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useUser } from "@auth0/nextjs-auth0";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Rating from "@mui/material/Rating";
@@ -12,6 +12,37 @@ import MonthlyBooksReadLineChart from "../components/MonthlyBooksReadLineChart";
 
 export default function user() {
   const { user, error, isLoading } = useUser();
+  const [averageStarRating, setAverageStarRating ] = useState(0)
+  const [totalBookNumber, setTotalBookNumber] = useState(0)
+
+  //Fetchs average star rating for the user
+  useEffect(() => {
+    const getAverageStarRating = async () => {
+      const response = await fetch(
+        `https://hackson5.herokuapp.com/readinglist/rating/${user.sub.substring(
+          user.sub.indexOf("|") + 1
+        )}`
+      );
+      const data = await response.json();
+      setAverageStarRating(data.payload);
+    };
+    getAverageStarRating();
+  }, [user]);
+
+  //Fetchs total book number for the user
+  useEffect(() => {
+    const getTotalBookNumber = async () => {
+      const response = await fetch(
+        `https://hackson5.herokuapp.com/readinglist/totalbooks/${user.sub.substring(
+          user.sub.indexOf("|") + 1
+        )}`
+      );
+      const data = await response.json();
+      setTotalBookNumber(data.payload[0].count);
+    };
+    getTotalBookNumber();
+  }, [user]);
+
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
@@ -39,12 +70,12 @@ export default function user() {
                   </Typography>
                 </div>
                 <div>
-                  <Rating readOnly name="simple-controlled" value={4.5} />
+                  <Rating readOnly name="simple-controlled" value={averageStarRating} />
                 </div>
               </div>
               <div className={styles.TotalBooks}>
                 <div>Total Books on Lists:</div>
-                <div className={styles.BookNumberRead}>5</div>
+                <div className={styles.BookNumberRead}>{totalBookNumber}</div>
               </div>
             </div>
           </div>
