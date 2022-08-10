@@ -13,6 +13,8 @@ import MonthlyBooksReadLineChart from "../components/MonthlyBooksReadLineChart";
 export default function user() {
   const { user, error, isLoading } = useUser();
   const [averageStarRating, setAverageStarRating ] = useState(0)
+  const [totalBookNumber, setTotalBookNumber] = useState(0)
+
   //Fetchs average star rating for the user
   useEffect(() => {
     const getAverageStarRating = async () => {
@@ -25,6 +27,20 @@ export default function user() {
       setAverageStarRating(data.payload);
     };
     getAverageStarRating();
+  }, [user]);
+
+  //Fetchs total book number for the user
+  useEffect(() => {
+    const getTotalBookNumber = async () => {
+      const response = await fetch(
+        `https://hackson5.herokuapp.com/readinglist/totalbooks/${user.sub.substring(
+          user.sub.indexOf("|") + 1
+        )}`
+      );
+      const data = await response.json();
+      setTotalBookNumber(data.payload[0].count);
+    };
+    getTotalBookNumber();
   }, [user]);
 
 
@@ -59,7 +75,7 @@ export default function user() {
               </div>
               <div className={styles.TotalBooks}>
                 <div>Total Books on Lists:</div>
-                <div className={styles.BookNumberRead}>5</div>
+                <div className={styles.BookNumberRead}>{totalBookNumber}</div>
               </div>
             </div>
           </div>
