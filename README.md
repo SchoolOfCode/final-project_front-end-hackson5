@@ -60,7 +60,7 @@ Books have a special place in peoples lives. Often, they are treated as prized p
 <img src="https://seeklogo.com/images/H/html5-logo-EF92D240D7-seeklogo.com.png" alt="HTML" title="HTML" height="75"/>
 <img src="https://seeklogo.com/images/C/css3-logo-8724075274-seeklogo.com.png" alt="CSS" title="CSS" height="75"/>
 <img src="https://seeklogo.com/images/R/react-logo-7B3CE81517-seeklogo.com.png" alt="React" title="React" height="60"/>
-<img src="https://seeklogo.com/images/N/next-js-logo-8FCFF51DD2-seeklogo.com.png" alt="Next.js" title="Next.js" height="60"/>
+<img src="https://puu.sh/JfuLT/df6ea8fcaf.png" alt="Next.js" title="Next.js" height="60"/>
 <img src="https://mui.com/static/logo.png" alt="Material UI" title="Material UI"height="60"/>
 <img src="https://www.roryhogan.co.uk/static/media/cypress.b9c1db72bf3e823c6202.png" alt="Cypress" title="Cypress" height="60"/>
 
