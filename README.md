@@ -6,9 +6,12 @@
 <a href="https://github.com/SchoolOfCode/final-project_front-end-hackson5/edit/documentation/README.md#-what-problem-did-we-solve"> What Problem Did We Solve? </a> |
 <a href="https://github.com/SchoolOfCode/final-project_front-end-hackson5/edit/documentation/README.md#atom_symbol-tech-stack"> Tech Stack </a> |
 <a href="https://github.com/SchoolOfCode/final-project_front-end-hackson5/edit/documentation/README.md#calling-features"> Features </a> |
-<a href="https://github.com/SchoolOfCode/final-project_front-end-hackson5/edit/documentation/README.md#how-we-worked-as-a-team"> How We Worked as a Team </a> |
+<a href="https://github.com/SchoolOfCode/final-project_front-end-hackson5/edit/documentation/README.md#how-we-worked-as-a-team"> Teamwork </a> |
 <a href="https://github.com/SchoolOfCode/final-project_front-end-hackson5/edit/documentation/README.md#world_map-roadmap"> Roadmap </a>
 </p>
+
+<a href="https://hackson5bok.vercel.app"><h3 align="center">BÖK App</h3></a> 
+
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png"/>
 
@@ -42,7 +45,7 @@
 
 ## :briefcase: Project Brief
 
-In a team of five decided by the School of Code we were given four weeks to plan, design and build a full stack application.We used the skills learnt during the 16 week bootcamp to achieve this.
+In a team of five decided by the School of Code we were given four weeks to plan, design and build a full stack application. We used the skills learnt during the 16 week bootcamp to achieve this.
 
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png"/>
 
@@ -101,20 +104,30 @@ Books have a special place in peoples lives. Often, they are treated as prized p
  
  A visual represenatation of a users journey through our app. The rating and total books are dynamic and based on users data with the other features being in development.
  
- ## How We Worked as a Team
+ ### <a href="https://hackson5bok.vercel.app">Demo BÖK</a>  
+ 
+ <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png"/>
+ 
+ ## 🤝 How We Worked as a Team
   
 As a team we wanted to adopt and agile working method to emulate the experience of working in a real world tech team. We did this by creating a team manifesto to ensure we had a safe environment where everyone's voice could be heard. We committed to holding daily stand-ups and retro meetings. When tackling the project we started by breaking the project down into sprints, stories and tickets. We used software such as Trello, Miro, Canva and Figma to work collaboratively as a team.
 
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png"/>
+
 ## :world_map: Roadmap
 
-Stats page more dynamic
+This is our first version of BÖK, for future versions we would like to include:
 
-More stats - reading progress/completed
+- The function to search by author.
 
-Search by author
+- User customisation: colours, fonts and profile image.
 
-Personal thoughts/journal
+- A space to add personal thoughts or notes about particular books.
 
-Customisable profile - colours, fonts
+- All statistics on Profile page dynamic and reflective of users activity. 
+
+- Additional statistics such as reading progress and if books on lists are read or unread.
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png"/>
 
 
