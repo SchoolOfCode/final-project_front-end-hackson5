@@ -20,18 +20,30 @@ Books have a special place in peoples lives. Often, they are treated as prized p
 
 
 
-## Tech Stack
+## :atom_symbol: Tech Stack
 
 <p align="center">
 
-<img src="https://seeklogo.com/images/J/javascript-js-logo-2949701702-seeklogo.com.png" alt="JavaScript" title="JavaScript" width="75"/>
-<img src="https://seeklogo.com/images/H/html5-logo-EF92D240D7-seeklogo.com.png" alt="HTML" height="75"/>
-<img src="https://seeklogo.com/images/C/css3-logo-8724075274-seeklogo.com.png" alt="CSS" height="75"/>
-<img src="https://seeklogo.com/images/R/react-logo-7B3CE81517-seeklogo.com.png" alt="React" width="75"/>
-<img src="https://seeklogo.com/images/N/next-js-logo-8FCFF51DD2-seeklogo.com.png" alt="Next.js" width="75"/>
-<img src="https://mui.com/static/logo.png" alt="Material UI" width="75"/>
-<img src="https://www.roryhogan.co.uk/static/media/cypress.b9c1db72bf3e823c6202.png" alt="Cypress" width="75"/>
+<img src="https://seeklogo.com/images/J/javascript-js-logo-2949701702-seeklogo.com.png" alt="JavaScript" title="JavaScript" height="60"/>
+<img src="https://seeklogo.com/images/H/html5-logo-EF92D240D7-seeklogo.com.png" alt="HTML" title="HTML" height="75"/>
+<img src="https://seeklogo.com/images/C/css3-logo-8724075274-seeklogo.com.png" alt="CSS" title="CSS" height="75"/>
+<img src="https://seeklogo.com/images/R/react-logo-7B3CE81517-seeklogo.com.png" alt="React" title="React" height="60"/>
+<img src="https://seeklogo.com/images/N/next-js-logo-8FCFF51DD2-seeklogo.com.png" alt="Next.js" title="Next.js" height="60"/>
+<img src="https://mui.com/static/logo.png" alt="Material UI" title="Material UI"height="60"/>
+<img src="https://www.roryhogan.co.uk/static/media/cypress.b9c1db72bf3e823c6202.png" alt="Cypress" title="Cypress" height="60"/>
 
 </p> 
+
+<p align="center">
+
+<img src="https://assets.website-files.com/61ca3f775a79ec5f87fcf937/6202fcdee5ee8636a145a41b_1234.png" alt="Expres" title="Express" width="75"/>
+<img src="https://seeklogo.com/images/N/nodejs-logo-FBE122E377-seeklogo.com.png" alt="Node.js" title="Node.js" height="75"/>
+<img src="https://www.postgresql.org/media/img/about/press/elephant.png" alt="Postgres" title="Postgres" width="75"/>
+<img src="https://seeklogo.com/images/H/heroku-logo-B774A78667-seeklogo.com.png" alt="Heroku" title="Heroku" height="75"/>
+<img src="https://seeklogo.com/images/A/auth0-logo-03B0DBA304-seeklogo.com.png" alt="Auth0" title="Auth0" height="75"/>
+<img src="https://seeklogo.com/images/J/jest-logo-F9901EBBF7-seeklogo.com.png" alt="Jest" title="Jest" height="75"/>
+
+</p> 
+
 
 
