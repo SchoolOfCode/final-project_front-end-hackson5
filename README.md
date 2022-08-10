@@ -83,7 +83,7 @@ Books have a special place in peoples lives. Often, they are treated as prized p
   
  ## :calling: Features 
  
- <img src="https://i.ibb.co/r59GjpF/Mobileview.png" alt="Mobile View Features" title="Mobile View Features" />
+ <img src="http://puu.sh/Jfv9D/9ca36dd817.png" alt="Mobile View Features" title="Mobile View Features" />
  
  ### Lists
  
