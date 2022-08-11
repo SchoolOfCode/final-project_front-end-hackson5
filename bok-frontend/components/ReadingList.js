@@ -116,6 +116,7 @@ function ReadingList({ readingList, setReadingList }) {
           <p>{arr.reading_list_name}</p>
           <img
             src={`https://covers.openlibrary.org/b/id/${arr.coverID}-L.jpg`}
+            alt={"Book cover"}
             width={100}
           />
           <div>

@@ -77,6 +77,7 @@ export default function BookSearchDisplay({ data, bookInfoDisplay }) {
             <div>
               <img
                 className={styles.searchImage}
+                alt={arr.title}
                 src={
                   typeof arr.covers === "object"
                     ? `https://covers.openlibrary.org/b/id/${arr.cover_i[0]}-L.jpg`
