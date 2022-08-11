@@ -28,7 +28,7 @@ function NavBar() {
         <div className={styles.navbarContainer}>
           <Link href="/home">
             <a>
-              <img className={styles.logo} src="/BokLogo.png"></img>
+              <img className={styles.logo} src="/BokLogo.png" alt="BokLogo" ></img>
             </a>
           </Link>
           <TextField
@@ -38,17 +38,21 @@ function NavBar() {
               border: "none",
               padding: 6,
             }}
+            
+            placeholder="Search books..."
             type="text"
             value={inputValue}
-            placeholder="Search books..."
             variant="standard"
             InputProps={{
+
+              label: "Search Books",
               disableUnderline: true,
               endAdornment: (
-                <InputAdornment position="end">
+                <InputAdornment position="end" >
                   <SearchIcon
                     style={{ cursor: "pointer" }}
                     onClick={(e) => handleSubmit(e)}
+                    titleAccess="Search Icon"
                   />
                 </InputAdornment>
               ),
@@ -124,7 +128,7 @@ function NavBar() {
         }
         onClick={() => setMenuOpen(false)}
       >
-        <CloseIcon className={styles.closeIcon} />
+        <CloseIcon className={styles.closeIcon} titleAccess="Close Menu Icon" />
       </div>
       <div
         className={

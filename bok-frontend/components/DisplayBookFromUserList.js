@@ -90,6 +90,7 @@ export function DisplayBookFromUserList({ bookList, readingListID }) {
             <div className={styles.bookCover}>
               <img
                 className={styles.searchImage}
+                alt={arr.title}
                 src={
                   typeof arr.covers === "object"
                     ? `https://covers.openlibrary.org/b/id/${arr.covers[0]}-L.jpg`

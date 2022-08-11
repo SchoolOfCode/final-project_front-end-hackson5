@@ -1,7 +1,7 @@
 <p align="center"><img src="https://puu.sh/JfsZh/a0463ed17d.png" alt="BÖK Logo" width="200"/></p>
 
 <p align="center">
-<a href="https://github.com/SchoolOfCode/final-project_front-end-hackson5/edit/documentation/README.md#-meet-the-team"> Meet The Team</a> |
+<a href="https://github.com/SchoolOfCode/final-project_front-end-hackson5/documentation/README.md#-meet-the-team"> Meet The Team</a> |
 <a href="https://github.com/SchoolOfCode/final-project_front-end-hackson5/edit/documentation/README.md#briefcase-project-brief"> Project Brief </a> |
 <a href="https://github.com/SchoolOfCode/final-project_front-end-hackson5/edit/documentation/README.md#-what-problem-did-we-solve"> What Problem Did We Solve? </a> |
 <a href="https://github.com/SchoolOfCode/final-project_front-end-hackson5/edit/documentation/README.md#atom_symbol-tech-stack"> Tech Stack </a> |
